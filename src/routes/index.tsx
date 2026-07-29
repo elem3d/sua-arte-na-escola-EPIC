@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   Sparkles,
@@ -154,48 +155,48 @@ function Hero() {
       <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="absolute left-1/2 top-0 h-[600px] w-[900px] -translate-x-1/2 rounded-full blur-3xl opacity-40"
         style={{ background: "var(--gradient-primary)" }} />
-      <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-32">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 md:pt-24 md:pb-32">
         <div className="mx-auto max-w-4xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             Concurso Epic 8 anos • Sua Arte na Escola
           </span>
-          <h1 className="mt-8 font-display text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+          <h1 className="mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Deixe sua marca
             <br />
             <span className="text-gradient font-serif italic font-normal">no mural da Epic.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+          <p className="mx-auto mt-5 md:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0">
             A ilustração vencedora vai ser impressa em uma parede de destaque da escola.
             Todo mundo que passar pela Epic vai ver o seu talento. Bora?
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
             <a
               href="#participar"
-              className="group inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.02]"
+              className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full px-6 py-3.5 sm:py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.02]"
               style={{ background: "var(--gradient-primary)" }}
             >
               Participar agora <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#regras"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 sm:py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
             >
               Ver regulamento
             </a>
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl border border-border/70 bg-border/50 overflow-hidden">
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl border border-border/70 bg-border/50 overflow-hidden">
             {[
               ["8", "Anos de Epic"],
               ["3", "Temas para escolher"],
               ["50", "Pontos possíveis"],
               ["12/09", "Deadline final"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-surface/80 p-5 text-left">
-                <div className="font-display text-3xl font-bold text-gradient">{v}</div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{l}</div>
+              <div key={l} className="bg-surface/80 p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+                <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{v}</div>
+                <div className="mt-1 text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">{l}</div>
               </div>
             ))}
           </div>
@@ -228,20 +229,29 @@ function FloatingTag({ label, className = "", accent = false }: { label: string;
   );
 }
 
-function Section({ id, eyebrow, title, subtitle, children }: any) {
+
+interface SectionProps {
+  id?: string;
+  eyebrow?: string;
+  title: ReactNode;
+  subtitle?: ReactNode;
+  children?: ReactNode;
+}
+
+function Section({ id, eyebrow, title, subtitle, children }: SectionProps) {
   return (
-    <section id={id} className="relative py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mx-auto max-w-3xl text-center mb-14">
+    <section id={id} className="relative py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-3xl text-center mb-10 md:mb-14 px-2 sm:px-0">
           {eyebrow && (
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/90 mb-4">
+            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-primary/90 mb-3 md:mb-4">
               {eyebrow}
             </div>
           )}
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
             {title}
           </h2>
-          {subtitle && <p className="mt-4 text-muted-foreground text-lg">{subtitle}</p>}
+          {subtitle && <p className="mt-3 md:mt-4 text-muted-foreground text-base md:text-lg">{subtitle}</p>}
         </div>
         {children}
       </div>
@@ -257,9 +267,9 @@ function About() {
   ];
   return (
     <Section id="sobre" eyebrow="O que é" title="Um mural pros próximos 8 anos" subtitle="O nosso aniversário tá chegando e queremos celebrar com o que vocês têm de melhor: criatividade. A arte vencedora vai ficar exposta na escola.">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="group rounded-2xl border border-border bg-[var(--gradient-card)] p-6 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
+          <div key={it.title} className="group rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
             <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
               <it.icon className="h-5 w-5" />
             </div>
@@ -275,18 +285,18 @@ function About() {
 function Themes() {
   return (
     <Section id="temas" eyebrow="Escolha um tema" title="Três direções, um mural" subtitle="Escolha um dos temas abaixo e mande uma justificativa curta explicando a conexão da sua arte com ele.">
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         {themes.map((t) => (
           <article
             key={t.n}
-            className="relative overflow-hidden rounded-2xl border border-border bg-[var(--gradient-card)] p-8 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-glow)]"
+            className="relative overflow-hidden rounded-2xl border border-border bg-[var(--gradient-card)] p-6 md:p-8 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-glow)]"
           >
             <div
               className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full opacity-30 blur-3xl"
               style={{ background: "var(--gradient-primary)" }}
             />
-            <div className="font-serif italic text-6xl text-gradient leading-none">{t.n}</div>
-            <h3 className="mt-6 font-display text-2xl font-semibold leading-tight">{t.title}</h3>
+            <div className="font-serif italic text-5xl md:text-6xl text-gradient leading-none">{t.n}</div>
+            <h3 className="mt-4 md:mt-6 font-display text-xl md:text-2xl font-semibold leading-tight">{t.title}</h3>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
           </article>
         ))}
@@ -311,17 +321,17 @@ function Themes() {
 function Specs() {
   return (
     <Section eyebrow="Especificações" title="Como a arte deve ser feita" subtitle="Só valem artes digitais — Pintura Digital, Ilustração Vetorial ou mix das duas. Como a arte vai pra uma parede gigante, essas configurações são obrigatórias.">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
         {specs.map((s) => (
-          <div key={s.label} className="rounded-2xl border border-border bg-surface/60 p-6">
+          <div key={s.label} className="rounded-2xl border border-border bg-surface/60 p-4 sm:p-5 md:p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
             <s.icon className="h-5 w-5 text-primary" />
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
             <div className="mt-1 font-display text-xl font-semibold">{s.value}</div>
           </div>
         ))}
       </div>
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-6">
+      <div className="mt-6 md:mt-8 grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6">
           <div className="font-display text-lg font-semibold flex items-center gap-2">
             <Layers className="h-5 w-5 text-primary" /> O que enviar
           </div>
@@ -332,7 +342,7 @@ function Specs() {
             <li><span className="text-foreground font-medium">Justificativa:</span> um textinho rápido sobre o tema escolhido.</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-6">
+        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6">
           <div className="font-display text-lg font-semibold flex items-center gap-2">
             <FileText className="h-5 w-5 text-accent" /> Onde entregar
           </div>
@@ -352,8 +362,8 @@ function Specs() {
 function AiRules() {
   return (
     <Section id="regras" eyebrow="Regras de IA" title="Crie, não copie" subtitle="Esse concurso é pra mostrar o seu talento humano e autoral.">
-      <div className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-destructive/40 bg-destructive/5 p-8">
+      <div className="grid gap-4 md:gap-6 md:grid-cols-2">
+        <div className="rounded-2xl border border-destructive/40 bg-destructive/5 p-6 md:p-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-destructive/40 bg-destructive/10 px-3 py-1 text-xs font-semibold text-destructive">
             <Ban className="h-3.5 w-3.5" /> Proibido
           </div>
@@ -363,7 +373,7 @@ function AiRules() {
             <li className="flex gap-3"><Ban className="h-4 w-4 shrink-0 mt-0.5 text-destructive" /> Imagens da internet como base da composição.</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-accent/40 bg-accent/5 p-8">
+        <div className="rounded-2xl border border-accent/40 bg-accent/5 p-6 md:p-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
             <Check className="h-3.5 w-3.5" /> Liberado
           </div>
@@ -383,11 +393,11 @@ function Timeline() {
     <Section id="cronograma" eyebrow="Cronograma" title="Se liga nas datas" subtitle="Não perca nenhum prazo importante.">
       <div className="relative mx-auto max-w-3xl">
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-accent/40 to-transparent md:-translate-x-px" />
-        <ol className="space-y-8">
+        <ol className="space-y-6 md:space-y-8">
           {timeline.map((m, i) => (
             <li key={m.date} className={`relative flex flex-col md:flex-row md:items-center gap-4 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-              <div className="md:w-1/2 md:px-8 pl-12 md:pl-0">
-                <div className={`rounded-2xl border p-5 ${m.highlight ? "border-primary/60 bg-primary/10 shadow-[var(--shadow-glow)]" : "border-border bg-surface/60"}`}>
+              <div className="md:w-1/2 md:px-8 pl-10 md:pl-0">
+                <div className={`rounded-2xl border p-4 md:p-5 ${m.highlight ? "border-primary/60 bg-primary/10 shadow-[var(--shadow-glow)]" : "border-border bg-surface/60"}`}>
                   <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
                     <Calendar className="h-3.5 w-3.5 text-primary" />
                     <span className={m.highlight ? "text-primary" : "text-muted-foreground"}>{m.date}</span>
@@ -413,9 +423,9 @@ function Timeline() {
 function Criteria() {
   return (
     <Section eyebrow="Avaliação" title="Como a arte será avaliada" subtitle="Uma banca de professores e convidados dá notas de até 50 pontos. As melhores vão pra final.">
-      <div className="grid gap-4">
+      <div className="grid gap-3 md:gap-4">
         {criteria.map((c) => (
-          <div key={c.name} className="flex items-center gap-6 rounded-2xl border border-border bg-surface/60 p-5">
+          <div key={c.name} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-border bg-surface/60 p-4 md:p-5">
             <div className="font-display text-3xl font-bold text-gradient w-16 shrink-0">{c.pts}</div>
             <div className="flex-1">
               <div className="font-display text-base font-semibold">{c.name}</div>
@@ -437,7 +447,7 @@ function Criteria() {
 function Prizes() {
   return (
     <Section id="premios" eyebrow="Premiação" title="O que você ganha">
-      <div className="grid gap-6 md:grid-cols-3 items-end">
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3 items-stretch md:items-end">
         <PrizeCard
           place="2º Lugar"
           items={["Combo Cineplay + Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
@@ -464,9 +474,9 @@ function Prizes() {
 function PrizeCard({ place, items, featured = false }: { place: string; items: string[]; featured?: boolean }) {
   return (
     <div
-      className={`relative rounded-3xl border p-8 ${
+      className={`relative rounded-3xl border p-6 md:p-8 ${
         featured
-          ? "border-primary/60 bg-[var(--gradient-card)] md:scale-105 shadow-[var(--shadow-glow)]"
+          ? "border-primary/60 bg-[var(--gradient-card)] md:scale-105 shadow-[var(--shadow-glow)] mt-4 md:mt-0"
           : "border-border bg-surface/60"
       }`}
     >
@@ -494,7 +504,7 @@ function RedFlags() {
     <Section eyebrow="Atenção" title="Red flags — o que desclassifica">
       <div className="grid gap-3 md:grid-cols-2">
         {redFlags.map((r) => (
-          <div key={r} className="flex gap-3 rounded-2xl border border-destructive/30 bg-destructive/5 p-5 text-sm">
+          <div key={r} className="flex gap-3 rounded-2xl border border-destructive/30 bg-destructive/5 p-4 md:p-5 text-sm">
             <AlertTriangle className="h-5 w-5 shrink-0 text-destructive mt-0.5" />
             <span className="text-foreground/90">{r}</span>
           </div>
@@ -506,31 +516,31 @@ function RedFlags() {
 
 function FinalCta() {
   return (
-    <section id="participar" className="relative py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="participar" className="relative py-16 md:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div
-          className="relative overflow-hidden rounded-3xl border border-primary/40 p-10 md:p-16 text-center"
+          className="relative overflow-hidden rounded-3xl border border-primary/40 p-8 sm:p-10 md:p-16 text-center"
           style={{ background: "var(--gradient-primary)" }}
         >
           <div className="absolute inset-0 bg-grid opacity-20 mix-blend-overlay" />
           <div className="relative">
-            <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 12/09 • 23:59</div>
-            <h2 className="mt-4 font-display text-4xl md:text-6xl font-bold text-white leading-[1.05]">
+            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 12/09 • 23:59</div>
+            <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.05]">
               Pronto para deixar<br />sua marca?
             </h2>
-            <p className="mt-6 mx-auto max-w-xl text-white/85">
+            <p className="mt-4 sm:mt-6 mx-auto max-w-xl text-sm sm:text-base text-white/85 px-4 sm:px-0">
               A entrega é pelo Google Classroom. Prepare os 4 arquivos e envie antes do prazo.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
               <a
                 href="#"
-                className="inline-flex items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground hover:bg-background/90 transition-colors"
+                className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground hover:bg-background/90 transition-colors"
               >
                 Enviar minha arte <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#regras"
-                className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
+                className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-white/40 bg-white/10 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
               >
                 Reler o regulamento
               </a>
@@ -545,18 +555,18 @@ function FinalCta() {
 function Footer() {
   return (
     <footer className="border-t border-border/60 py-12">
-      <div className="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-6 text-center md:text-left">
         <div>
-          <div className="font-display text-lg font-bold flex items-center gap-2">
+          <div className="font-display text-lg font-bold flex items-center justify-center md:justify-start gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_var(--color-primary)]" />
             EPIC <span className="text-muted-foreground font-normal">School Floripa</span>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground max-w-md">
+          <p className="mt-3 md:mt-2 text-sm text-muted-foreground max-w-md">
             A arte sempre será sua. Ao participar, você autoriza a Epic School a imprimir o mural, postar nas redes
             e expor na escola — sempre com os devidos créditos.
           </p>
         </div>
-        <div className="flex items-center gap-6 text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 md:gap-6 text-sm text-muted-foreground">
           <a href="#sobre" className="hover:text-foreground">Concurso</a>
           <a href="#cronograma" className="hover:text-foreground">Cronograma</a>
           <a href="#premios" className="hover:text-foreground">Prêmios</a>
@@ -568,7 +578,7 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="mt-8 text-center text-xs text-muted-foreground">
+      <div className="mt-10 md:mt-8 text-center text-xs text-muted-foreground">
         © 2026 Epic School Floripa — Concurso Sua Arte na Escola.
       </div>
     </footer>

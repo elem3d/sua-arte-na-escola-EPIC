@@ -67,7 +67,7 @@ const specs = [
   { icon: Ruler, label: "Tamanho", value: "2,00 × 1,40 m" },
   { icon: Monitor, label: "Resolução", value: "300 DPI" },
   { icon: Palette, label: "Modo de cor", value: "CMYK" },
-  { icon: FileText, label: "Formatos", value: "PDF + PSD/AI/CLIP" },
+  { icon: FileText, label: "Formatos", value: "PDF + PSD" },
 ];
 
 const timeline = [
@@ -313,10 +313,9 @@ function Specs() {
             <Layers className="h-5 w-5 text-primary" /> O que enviar
           </div>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li><span className="text-foreground font-medium">Arte final:</span> PDF fechado em CMYK, 300 DPI.</li>
-            <li><span className="text-foreground font-medium">Arquivo aberto:</span> .PSD / .AI / .CLIP com camadas organizadas e nomeadas.</li>
-            <li><span className="text-foreground font-medium">Vídeo do processo:</span> time-lapse (obrigatório se desenhou no celular ou tablet).</li>
-            <li><span className="text-foreground font-medium">Justificativa:</span> um textinho rápido sobre o tema escolhido.</li>
+            <li><span className="text-foreground font-medium">1. Arte final (PDF):</span> Fechado bonitinho em CMYK e 300 DPI.</li>
+            <li><span className="text-foreground font-medium">2. Arquivo aberto (.PSD):</span> O arquivo editável em Photoshop com todas as camadas preservadas, organizadas e com nomes.</li>
+            <li><span className="text-foreground font-medium">3. Justificativa:</span> Textinho rápido explicando por que sua arte tem a ver com o tema escolhido.</li>
           </ul>
         </div>
         <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6">
@@ -325,12 +324,22 @@ function Specs() {
           </div>
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             A entrega é exclusivamente pelo <span className="text-foreground font-medium">Google Classroom</span>.
-            Anexe os 4 itens acima antes da deadline (12/09 às 23:59).
+            Anexe os 3 itens acima antes da deadline (12/09 às 23:59).
           </p>
           <p className="mt-3 text-xs text-muted-foreground">
             Obs: pode ser que a gente peça um ajuste de enquadramento pro vencedor, só pra garantir que encaixe perfeito na parede.
           </p>
         </div>
+      </div>
+      <div className="mt-8 flex justify-center">
+        <a
+          href="https://classroom.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-6 py-3.5 text-sm font-semibold text-foreground hover:bg-primary/20 transition-all hover:scale-[1.02]"
+        >
+          Ir para o Classroom <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </a>
       </div>
     </Section>
   );
@@ -375,12 +384,12 @@ function Timeline() {
             <li key={m.date} className={`relative flex flex-col md:flex-row md:items-center gap-4 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
               <div className="md:w-1/2 md:px-8 pl-10 md:pl-0">
                 <div className={`rounded-2xl border p-4 md:p-5 ${m.highlight ? "border-primary/60 bg-primary/10 shadow-[var(--shadow-glow)]" : "border-border bg-surface/60"}`}>
-                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
-                    <Calendar className="h-3.5 w-3.5 text-primary" />
-                    <span className={m.highlight ? "text-primary" : "text-muted-foreground"}>{m.date}</span>
+                  <div className="flex items-center gap-2 font-display text-xl sm:text-2xl font-bold text-gradient">
+                    <Calendar className="h-5 w-5 text-primary shrink-0" />
+                    <span>{m.date}</span>
                   </div>
-                  <div className="mt-2 font-display text-lg font-semibold">{m.title}</div>
-                  <div className="mt-1 text-sm text-muted-foreground">{m.desc}</div>
+                  <div className="mt-1.5 font-display text-base sm:text-lg font-semibold text-foreground">{m.title}</div>
+                  <div className="mt-1 text-xs sm:text-sm text-muted-foreground leading-relaxed">{m.desc}</div>
                 </div>
               </div>
               <div
@@ -392,6 +401,11 @@ function Timeline() {
             </li>
           ))}
         </ol>
+      </div>
+      <div className="mt-8 text-center">
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs sm:text-sm font-medium text-foreground">
+          📹 Todos os workshops serão gravados e disponibilizados no Google Classroom do concurso.
+        </span>
       </div>
     </Section>
   );
@@ -514,7 +528,7 @@ function FinalCta() {
               Pronto para deixar<br />sua marca?
             </h2>
             <p className="mt-4 sm:mt-6 mx-auto max-w-xl text-sm sm:text-base text-white/85 px-4 sm:px-0">
-              A entrega é pelo Google Classroom. Prepare os 4 arquivos e envie antes do prazo.
+              A entrega é pelo Google Classroom. Prepare os 3 arquivos e envie antes do prazo.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
               <a

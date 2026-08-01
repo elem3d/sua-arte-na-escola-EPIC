@@ -139,7 +139,9 @@ function Nav() {
           ))}
         </nav>
         <a
-          href="#participar"
+          href="https://classroom.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/20 transition-colors"
         >
           Quero participar <ArrowRight className="h-4 w-4" />
@@ -172,7 +174,9 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
             <a
-              href="#participar"
+              href="https://classroom.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full px-6 py-3.5 sm:py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.02]"
               style={{ background: "var(--gradient-primary)" }}
             >
@@ -436,9 +440,12 @@ function Criteria() {
           );
         })}
       </div>
-      <p className="mt-6 text-center text-sm text-muted-foreground">
-        Desempate: maior nota em <span className="text-foreground">Identidade Epic</span> → <span className="text-foreground">Conceito</span> → <span className="text-foreground">Votação Popular</span> no Instagram.
-      </p>
+      <div className="mt-8 rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6 text-center">
+        <div className="font-display text-base font-semibold text-foreground">E se der empate?</div>
+        <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          A gente desempata olhando quem tirou a maior nota na <span className="text-foreground font-medium">Identidade Epic</span>, depois no <span className="text-foreground font-medium">Conceito</span> e, por último, o resultado da <span className="text-foreground font-medium">Votação Popular</span> no Instagram.
+        </p>
+      </div>
     </Section>
   );
 }
@@ -449,13 +456,13 @@ function Prizes() {
       <div className="grid gap-4 md:gap-6 md:grid-cols-3 items-stretch md:items-end">
         <PrizeCard
           place="2º Lugar"
-          items={["Combo Cineplay + Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
+          items={["Combo Cineplay OU Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
         <PrizeCard
           place="1º Lugar"
           featured
           items={[
-            "Arte GIGANTE instalada no mural oficial da Epic",
+            "Arte GIGANTE plotada na parede em frente ao Laboratório G1",
             "Mesa digitalizadora / tablet de pintura digital",
             "Arte impressa em A3",
             "Muito destaque nas redes sociais",
@@ -463,7 +470,7 @@ function Prizes() {
         />
         <PrizeCard
           place="3º Lugar"
-          items={["Combo Cineplay + Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
+          items={["Combo Cineplay OU Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
       </div>
     </Section>
@@ -532,7 +539,9 @@ function FinalCta() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
               <a
-                href="#"
+                href="https://classroom.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground hover:bg-background/90 transition-colors"
               >
                 Enviar minha arte <ArrowRight className="h-4 w-4" />
@@ -570,10 +579,12 @@ function Footer() {
           <a href="#cronograma" className="hover:text-foreground">Cronograma</a>
           <a href="#premios" className="hover:text-foreground">Prêmios</a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/epicfloripa/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 hover:text-foreground"
           >
-            <Instagram className="h-4 w-4" /> @epicschool
+            <Instagram className="h-4 w-4" /> @epicfloripa
           </a>
         </div>
       </div>

@@ -565,10 +565,15 @@ function Footer() {
     <footer className="border-t border-border/60 py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-6 text-center md:text-left">
         <div>
-          <div className="font-display text-lg font-bold flex items-center justify-center md:justify-start gap-2">
+          <a
+            href="https://www.epicschool.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-display text-lg font-bold flex items-center justify-center md:justify-start gap-2 hover:opacity-90 transition-opacity"
+          >
             <span className="inline-block h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_var(--color-primary)]" />
             EPIC <span className="text-muted-foreground font-normal">School Floripa</span>
-          </div>
+          </a>
           <p className="mt-3 md:mt-2 text-sm text-muted-foreground max-w-md">
             A arte sempre será sua. Ao participar, você autoriza a Epic School a imprimir o mural, postar nas redes
             e expor na escola — sempre com os devidos créditos.
@@ -578,6 +583,14 @@ function Footer() {
           <a href="#sobre" className="hover:text-foreground">Concurso</a>
           <a href="#cronograma" className="hover:text-foreground">Cronograma</a>
           <a href="#premios" className="hover:text-foreground">Prêmios</a>
+          <a
+            href="https://www.epicschool.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 hover:text-foreground"
+          >
+            <Monitor className="h-4 w-4" /> epicschool.com.br
+          </a>
           <a
             href="https://www.instagram.com/epicfloripa/"
             target="_blank"

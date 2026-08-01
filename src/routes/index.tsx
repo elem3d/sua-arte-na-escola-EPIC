@@ -170,14 +170,7 @@ function Hero() {
             A ilustração vencedora vai ser impressa em uma parede de destaque da escola.
             Todo mundo que passar pela Epic vai ver o seu talento. Bora?
           </p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 md:hidden">
-            <TagBadge label="Pintura Digital" />
-            <TagBadge label="Ilustração Vetorial" accent />
-            <TagBadge label="Identidade Epic" accent />
-            <TagBadge label="Mural Físico" />
-          </div>
-
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
             <a
               href="#participar"
               className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full px-6 py-3.5 sm:py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.02]"
@@ -208,36 +201,9 @@ function Hero() {
             ))}
           </div>
         </div>
-
-        {/* Floating tags */}
-        <FloatingTag label="Pintura Digital" className="left-2 xl:left-4 top-28 xl:top-32 hidden md:flex" />
-        <FloatingTag label="Ilustração Vetorial" className="right-2 xl:right-8 top-36 xl:top-40 hidden md:flex" accent />
-        <FloatingTag label="Mural Físico" className="left-4 xl:left-16 bottom-24 hidden md:flex" />
-        <FloatingTag label="Identidade Epic" className="right-4 xl:right-16 bottom-32 hidden md:flex" accent />
       </div>
     </section>
   );
-}
-
-function TagBadge({ label, accent = false, className = "" }: { label: string; accent?: boolean; className?: string }) {
-  return (
-    <div
-      className={`inline-flex items-center gap-2 rounded-full border bg-surface/80 backdrop-blur px-3.5 py-1.5 text-xs font-medium ${className}`}
-      style={{
-        borderColor: accent ? "oklch(0.68 0.19 250 / 0.5)" : "oklch(0.62 0.24 295 / 0.5)",
-      }}
-    >
-      <span
-        className="inline-block h-1.5 w-1.5 rounded-full"
-        style={{ background: accent ? "oklch(0.68 0.19 250)" : "oklch(0.62 0.24 295)" }}
-      />
-      {label}
-    </div>
-  );
-}
-
-function FloatingTag({ label, className = "", accent = false }: { label: string; className?: string; accent?: boolean }) {
-  return <TagBadge label={label} accent={accent} className={`absolute px-4 py-2 ${className}`} />;
 }
 
 

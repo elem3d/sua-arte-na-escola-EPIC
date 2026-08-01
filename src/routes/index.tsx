@@ -71,22 +71,22 @@ const specs = [
 ];
 
 const timeline = [
-  { date: "03/08", title: "Lançamento", desc: "Abertura das inscrições pra geral." },
-  { date: "15/08", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator." },
-  { date: "22/08", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
-  { date: "29/08", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
+  { date: "05/08", title: "Lançamento", desc: "Abertura das inscrições pra geral." },
+  { date: "15/08 • 16h às 18h", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator." },
+  { date: "22/08 • 16h às 18h", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
+  { date: "29/08 • 16h às 18h", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
   { date: "01–11/09", title: "Reta final de produção", desc: "Tempo livre pra focar e finalizar." },
   { date: "12/09", title: "Deadline — 23:59", desc: "Submissões encerram em ponto.", highlight: true },
-  { date: "17–19/09", title: "Votação popular", desc: "Finalistas nos Stories do Instagram." },
+  { date: "18–21/09", title: "Votação popular", desc: "Finalistas nos Stories do Instagram." },
   { date: "26/09", title: "Festa de 8 anos", desc: "Revelação do mural oficial." },
 ];
 
 const criteria = [
-  { name: "Conceito", desc: "Criatividade, ideia e conexão com o tema.", pts: 10 },
-  { name: "Identidade Epic", desc: "Como você mostrou (ou escondeu) elementos da escola.", pts: 10 },
-  { name: "Técnica", desc: "Skills no software e acabamento.", pts: 10 },
-  { name: "Impacto Visual", desc: "Se chama atenção e fica forte vista de longe.", pts: 10 },
-  { name: "Regras Técnicas", desc: "Tamanho, cor e resolução corretos pra impressão.", pts: 10 },
+  { name: "Conceito", desc: "Sua criatividade, ideia e se tem a ver com o tema.", pts: 20 },
+  { name: "Identidade Epic", desc: "Como você escondeu ou mostrou os elementos da escola.", pts: 10 },
+  { name: "Técnica", desc: "Seus skills no software e o acabamento.", pts: 5 },
+  { name: "Impacto Visual", desc: "Se a arte chama atenção e fica bonita vista de longe.", pts: 5 },
+  { name: "Regras Técnicas", desc: "Se tá no tamanho certo, modo de cor certo e resolução pra imprimir.", pts: 20 },
 ];
 
 const redFlags = [
@@ -164,7 +164,7 @@ function Hero() {
           <h1 className="mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Deixe sua marca
             <br />
-            <span className="text-gradient font-serif italic font-normal">no mural da Epic.</span>
+            <span className="text-gradient font-serif italic font-normal">na parede da Epic.</span>
           </h1>
           <p className="mx-auto mt-5 md:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0">
             A ilustração vencedora vai ser impressa em uma parede de destaque da escola.
@@ -191,7 +191,7 @@ function Hero() {
             {[
               ["8", "Anos de Epic"],
               ["3", "Temas para escolher"],
-              ["50", "Pontos possíveis"],
+              ["60", "Pontos possíveis"],
               ["12/09", "Deadline final"],
             ].map(([v, l]) => (
               <div key={l} className="bg-surface/80 p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
@@ -243,7 +243,7 @@ function About() {
     { icon: Sparkles, title: "Identidade Epic", desc: "Elmo, Gladiador, logo, cores — coloque algo da escola na arte." },
   ];
   return (
-    <Section id="sobre" eyebrow="O que é" title="Um mural pros próximos 8 anos" subtitle="O nosso aniversário tá chegando e queremos celebrar com o que vocês têm de melhor: criatividade. A arte vencedora vai ficar exposta na escola.">
+    <Section id="sobre" eyebrow="O que é" title="Um mural pros próximos 8 anos" subtitle="O nosso aniversário tá chegando e queremos celebrar com o que vocês têm de melhor: criatividade. A arte vencedora será plotada na parede da escola.">
       <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         {items.map((it) => (
           <div key={it.title} className="group rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
@@ -398,21 +398,29 @@ function Timeline() {
 }
 
 function Criteria() {
+  const totalPoints = criteria.reduce((acc, c) => acc + c.pts, 0);
+
   return (
-    <Section eyebrow="Avaliação" title="Como a arte será avaliada" subtitle="Uma banca de professores e convidados dá notas de até 50 pontos. As melhores vão pra final.">
+    <Section eyebrow="Avaliação" title="Como a arte será avaliada" subtitle={`Uma banca de professores e convidados dá notas de até ${totalPoints} pontos. As melhores vão pra final.`}>
       <div className="grid gap-3 md:gap-4">
-        {criteria.map((c) => (
-          <div key={c.name} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-border bg-surface/60 p-4 md:p-5">
-            <div className="font-display text-3xl font-bold text-gradient w-16 shrink-0">{c.pts}</div>
-            <div className="flex-1">
-              <div className="font-display text-base font-semibold">{c.name}</div>
-              <div className="text-sm text-muted-foreground">{c.desc}</div>
+        {criteria.map((c) => {
+          const pct = ((c.pts / totalPoints) * 100).toFixed(1).replace(/\.0$/, "");
+          return (
+            <div key={c.name} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-border bg-surface/60 p-4 md:p-5">
+              <div className="font-display text-3xl font-bold text-gradient w-16 shrink-0">{c.pts}</div>
+              <div className="flex-1">
+                <div className="font-display text-base font-semibold">{c.name}</div>
+                <div className="text-sm text-muted-foreground">{c.desc}</div>
+              </div>
+              <div
+                className="font-display text-xl md:text-2xl font-bold shrink-0 text-transparent bg-clip-text self-start sm:self-center"
+                style={{ backgroundImage: "var(--gradient-primary)" }}
+              >
+                {pct}%
+              </div>
             </div>
-            <div className="hidden md:block h-2 flex-1 rounded-full bg-border/60 overflow-hidden">
-              <div className="h-full rounded-full" style={{ width: "100%", background: "var(--gradient-primary)" }} />
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
       <p className="mt-6 text-center text-sm text-muted-foreground">
         Desempate: maior nota em <span className="text-foreground">Identidade Epic</span> → <span className="text-foreground">Conceito</span> → <span className="text-foreground">Votação Popular</span> no Instagram.

@@ -597,12 +597,7 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 hover:text-foreground"
-          >
-            <Instagram className="h-4 w-4" /> @epicfloripa
-          </a>
-        </div>
-      </div>
-      <div className="mt-10 md:mt-8 text-center text-xs text-muted-foreground">
+              <div className="mt-10 md:mt-8 text-center text-xs text-muted-foreground">
         © 2026 Epic School Floripa — Concurso Sua Arte na Escola.
       </div>
     </footer>
@@ -611,57 +606,58 @@ function Footer() {
 
 function FluidBackground() {
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-40">
-      {/* Top Left Shape */}
-      <svg
-        className="absolute -top-[5%] -left-[10%] w-[50%] h-auto text-primary opacity-30 mix-blend-screen animate-[spin_60s_linear_infinite]"
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="currentColor"
-          d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,89.1,-0.5C88.1,15.3,83.5,30.6,74.2,43.2C64.9,55.8,50.8,65.6,35.6,72.2C20.4,78.8,4.1,82.2,-11.1,80.1C-26.3,78,-40.4,70.5,-51.9,60C-63.4,49.5,-72.3,36,-77.7,21.1C-83.1,6.1,-85,-10.3,-80.6,-25.1C-76.3,-39.9,-65.7,-53.1,-52.3,-60.8C-38.9,-68.5,-22.7,-70.7,-6.2,-70.5C10.3,-70.4,20.6,-68,30.6,-83.6L44.7,-76.4Z"
-          transform="translate(100 100)"
-        />
-      </svg>
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {/* Subtle tech dots pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-primary)_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.07] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
 
-      {/* Middle Right Shape */}
       <svg
-        className="absolute top-[25%] -right-[5%] w-[40%] h-auto text-accent opacity-20 mix-blend-screen animate-[spin_50s_linear_infinite_reverse]"
-        viewBox="0 0 200 200"
+        className="absolute w-full h-full opacity-70"
+        viewBox="0 0 1440 3000"
+        preserveAspectRatio="xMidYMid slice"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path
-          fill="currentColor"
-          d="M47.7,-57.2C59.9,-44.6,66.5,-26.8,69.5,-8.1C72.5,10.7,71.9,30.3,61.9,44.7C51.9,59.1,32.5,68.2,12.7,70.8C-7.2,73.4,-27.4,69.5,-42.9,58.3C-58.4,47.1,-69.2,28.6,-70.6,9.8C-72,-9,-64,-28.1,-50.9,-41.2C-37.8,-54.3,-19.7,-61.4,-0.6,-60.7C18.6,-60,35.5,-69.8,47.7,-57.2Z"
-          transform="translate(100 100)"
-        />
-      </svg>
+        <defs>
+          <linearGradient id="art-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="var(--color-accent)" stopOpacity="0.04" />
+          </linearGradient>
+          <linearGradient id="art-grad2" x1="100%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="var(--color-accent)" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0.04" />
+          </linearGradient>
+          <filter id="art-blur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="80" />
+          </filter>
+        </defs>
 
-      {/* Center Left Shape */}
-      <svg
-        className="absolute top-[45%] -left-[15%] w-[60%] h-auto text-primary opacity-20 mix-blend-screen animate-[spin_70s_linear_infinite]"
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="currentColor"
-          d="M48.1,-63.3C60.5,-51.7,67.3,-34.5,69.4,-17.1C71.4,0.3,68.7,17.9,59.3,31.7C50,45.4,33.9,55.3,16.4,61.7C-1.1,68.1,-20.1,71.1,-37.2,64.2C-54.4,57.3,-69.8,40.5,-74.6,21C-79.5,1.5,-73.9,-20.7,-62.1,-37.8C-50.4,-54.9,-32.5,-66.8,-15.1,-68.8C2.2,-70.9,19.6,-63.1,35.7,-74.9L48.1,-63.3Z"
-          transform="translate(100 100)"
-        />
-      </svg>
-      
-      {/* Bottom Center Shape */}
-      <svg
-        className="absolute top-[75%] -right-[10%] w-[45%] h-auto text-accent opacity-25 mix-blend-screen animate-[spin_55s_linear_infinite_reverse]"
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill="currentColor"
-          d="M39.6,-57C52.2,-46.8,63.9,-35.1,69.2,-20.3C74.6,-5.4,73.6,12.7,65.8,27.9C57.9,43.2,43.3,55.6,27.1,62.3C10.9,69,-6.9,70.1,-24.1,65.6C-41.2,61,-57.7,50.8,-66.9,36C-76,21.3,-77.8,2,-72.6,-14.7C-67.4,-31.4,-55.1,-45.5,-40.8,-55.3C-26.6,-65,-10.3,-70.4,1.8,-72.7C13.9,-75,27,-74.2,39.6,-57Z"
-          transform="translate(100 100)"
-        />
+        {/* --- ARTISTIC FORMS (Organic glowing blobs) --- */}
+        <g filter="url(#art-blur)">
+          <path fill="url(#art-grad1)" d="M-100,200 C300,50 600,400 400,800 C200,1200 -200,1000 -300,600 Z" className="animate-[pulse_10s_ease-in-out_infinite]" />
+          <path fill="url(#art-grad2)" d="M1200,500 C1600,400 1800,800 1500,1200 C1200,1600 800,1400 900,900 Z" className="animate-[pulse_12s_ease-in-out_infinite]" />
+          <path fill="url(#art-grad1)" d="M200,1800 C600,1500 900,1900 700,2400 C500,2900 0,2700 -100,2200 Z" className="animate-[pulse_14s_ease-in-out_infinite]" />
+          <path fill="url(#art-grad2)" d="M1100,2200 C1500,1900 1700,2400 1400,2800 C1100,3200 600,3000 700,2500 Z" className="animate-[pulse_11s_ease-in-out_infinite]" />
+        </g>
+
+        {/* --- TECHNOLOGICAL FLUID LINES (Data flow, sine waves) --- */}
+        <g fill="none" strokeWidth="1" stroke="currentColor">
+          {/* Top Section */}
+          <path className="text-primary opacity-30" strokeDasharray="4 8" d="M-100,400 C200,300 500,600 900,300 S1300,500 1600,400" />
+          <path className="text-primary opacity-50" d="M-100,420 C220,320 520,620 920,320 S1320,520 1620,420" />
+          <path className="text-accent opacity-20" strokeWidth="2" d="M1600,600 C1200,700 900,400 500,700 S100,500 -100,600" />
+
+          {/* Middle Section */}
+          <path className="text-accent opacity-40" strokeDasharray="12 6" d="M-100,1400 C300,1200 600,1700 1000,1300 S1400,1600 1600,1400" />
+          <path className="text-primary opacity-20" strokeWidth="1.5" d="M1600,1500 C1100,1400 800,1900 400,1600 S0,1800 -100,1700" />
+          
+          {/* Vertical Connectors */}
+          <path className="text-foreground opacity-[0.05]" d="M300,-100 C400,500 100,1000 300,1500 S500,2500 300,3100" />
+          <path className="text-foreground opacity-[0.05]" d="M1200,-100 C1100,400 1400,1100 1100,1800 S1300,2600 1100,3100" />
+
+          {/* Bottom Section */}
+          <path className="text-primary opacity-40" strokeDasharray="2 4" d="M-100,2400 C400,2600 700,2200 1100,2500 S1500,2300 1600,2600" />
+          <path className="text-accent opacity-30" strokeWidth="1" d="M-100,2450 C380,2650 680,2250 1080,2550 S1480,2350 1600,2650" />
+          <path className="text-primary opacity-20" strokeWidth="2" d="M1600,2800 C1200,2700 900,3100 500,2800 S100,2900 -100,2800" />
+        </g>
       </svg>
     </div>
   );

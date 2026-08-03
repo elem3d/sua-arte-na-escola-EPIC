@@ -160,14 +160,14 @@ function Hero() {
         style={{ background: "var(--gradient-primary)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 md:pt-24 md:pb-32">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90 uppercase tracking-wider">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
-            Concurso Epic 8 anos • Sua Arte na Escola
+            XP-PEN em parceria com a Epic apresenta
           </span>
           <h1 className="mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-            Deixe sua marca
+            Sua Arte
             <br />
-            <span className="text-gradient font-serif italic font-normal">na parede da Epic.</span>
+            <span className="text-gradient font-serif italic font-normal">na Escola.</span>
           </h1>
           <p className="mx-auto mt-5 md:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0">
             A ilustração vencedora vai ser impressa em uma parede de destaque da escola.
@@ -663,6 +663,10 @@ function FluidBackground() {
           <path className="text-primary opacity-20" strokeWidth="2" d="M1600,2800 C1200,2700 900,3100 500,2800 S100,2900 -100,2800" />
         </g>
       </svg>
+
+      {/* --- DECORATIVE SPONSOR/ART IMAGES --- */}
+      <img src="/images/tablet.png" alt="" className="absolute top-[10%] -left-[10vw] w-[40vw] max-w-[500px] opacity-30 mix-blend-lighten blur-[1px] animate-[pulse_10s_ease-in-out_infinite]" style={{ transform: 'rotate(15deg)' }} />
+      <img src="/images/paintbrush.png" alt="" className="absolute top-[50%] -right-[5vw] w-[35vw] max-w-[450px] opacity-30 mix-blend-lighten blur-[1px] animate-[pulse_12s_ease-in-out_infinite_reverse]" style={{ transform: 'rotate(-10deg)' }} />
     </div>
   );
 }

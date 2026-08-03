@@ -99,7 +99,8 @@ const redFlags = [
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="relative min-h-screen bg-background text-foreground font-sans overflow-x-hidden">
+      <FluidBackground />
       <Nav />
       <Hero />
       <About />
@@ -605,5 +606,63 @@ function Footer() {
         © 2026 Epic School Floripa — Concurso Sua Arte na Escola.
       </div>
     </footer>
+  );
+}
+
+function FluidBackground() {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-40">
+      {/* Top Left Shape */}
+      <svg
+        className="absolute -top-[5%] -left-[10%] w-[50%] h-auto text-primary opacity-30 mix-blend-screen animate-[spin_60s_linear_infinite]"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,89.1,-0.5C88.1,15.3,83.5,30.6,74.2,43.2C64.9,55.8,50.8,65.6,35.6,72.2C20.4,78.8,4.1,82.2,-11.1,80.1C-26.3,78,-40.4,70.5,-51.9,60C-63.4,49.5,-72.3,36,-77.7,21.1C-83.1,6.1,-85,-10.3,-80.6,-25.1C-76.3,-39.9,-65.7,-53.1,-52.3,-60.8C-38.9,-68.5,-22.7,-70.7,-6.2,-70.5C10.3,-70.4,20.6,-68,30.6,-83.6L44.7,-76.4Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      {/* Middle Right Shape */}
+      <svg
+        className="absolute top-[25%] -right-[5%] w-[40%] h-auto text-accent opacity-20 mix-blend-screen animate-[spin_50s_linear_infinite_reverse]"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M47.7,-57.2C59.9,-44.6,66.5,-26.8,69.5,-8.1C72.5,10.7,71.9,30.3,61.9,44.7C51.9,59.1,32.5,68.2,12.7,70.8C-7.2,73.4,-27.4,69.5,-42.9,58.3C-58.4,47.1,-69.2,28.6,-70.6,9.8C-72,-9,-64,-28.1,-50.9,-41.2C-37.8,-54.3,-19.7,-61.4,-0.6,-60.7C18.6,-60,35.5,-69.8,47.7,-57.2Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      {/* Center Left Shape */}
+      <svg
+        className="absolute top-[45%] -left-[15%] w-[60%] h-auto text-primary opacity-20 mix-blend-screen animate-[spin_70s_linear_infinite]"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M48.1,-63.3C60.5,-51.7,67.3,-34.5,69.4,-17.1C71.4,0.3,68.7,17.9,59.3,31.7C50,45.4,33.9,55.3,16.4,61.7C-1.1,68.1,-20.1,71.1,-37.2,64.2C-54.4,57.3,-69.8,40.5,-74.6,21C-79.5,1.5,-73.9,-20.7,-62.1,-37.8C-50.4,-54.9,-32.5,-66.8,-15.1,-68.8C2.2,-70.9,19.6,-63.1,35.7,-74.9L48.1,-63.3Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+      
+      {/* Bottom Center Shape */}
+      <svg
+        className="absolute top-[75%] -right-[10%] w-[45%] h-auto text-accent opacity-25 mix-blend-screen animate-[spin_55s_linear_infinite_reverse]"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="currentColor"
+          d="M39.6,-57C52.2,-46.8,63.9,-35.1,69.2,-20.3C74.6,-5.4,73.6,12.7,65.8,27.9C57.9,43.2,43.3,55.6,27.1,62.3C10.9,69,-6.9,70.1,-24.1,65.6C-41.2,61,-57.7,50.8,-66.9,36C-76,21.3,-77.8,2,-72.6,-14.7C-67.4,-31.4,-55.1,-45.5,-40.8,-55.3C-26.6,-65,-10.3,-70.4,1.8,-72.7C13.9,-75,27,-74.2,39.6,-57Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+    </div>
   );
 }

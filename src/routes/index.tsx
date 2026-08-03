@@ -71,7 +71,7 @@ const specs = [
 ];
 
 const timeline = [
-  { date: "05/08", title: "Lançamento", desc: "Abertura das inscrições pra geral." },
+  { date: "08/08", title: "Lançamento", desc: "Abertura das inscrições pra geral." },
   { date: "15/08 • 16h às 18h", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator." },
   { date: "22/08 • 16h às 18h", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
   { date: "29/08 • 16h às 18h", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
@@ -456,7 +456,7 @@ function Prizes() {
       <div className="grid gap-4 md:gap-6 md:grid-cols-3 items-stretch md:items-end">
         <PrizeCard
           place="2º Lugar"
-          items={["Combo Cineplay OU Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
+          items={["Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
         <PrizeCard
           place="1º Lugar"
@@ -470,7 +470,7 @@ function Prizes() {
         />
         <PrizeCard
           place="3º Lugar"
-          items={["Combo Cineplay OU Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
+          items={["Combo Cineplay", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
       </div>
     </Section>

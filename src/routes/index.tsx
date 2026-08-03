@@ -67,7 +67,7 @@ const specs = [
   { icon: Ruler, label: "Tamanho", value: "2,00 × 1,40 m" },
   { icon: Monitor, label: "Resolução", value: "300 DPI" },
   { icon: Palette, label: "Modo de cor", value: "CMYK" },
-  { icon: FileText, label: "Formatos", value: "PDF + PSD" },
+  { icon: FileText, label: "Formatos", value: "PDF + PSD + AI" },
 ];
 
 const timeline = [
@@ -318,7 +318,7 @@ function Specs() {
           </div>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
             <li><span className="text-foreground font-medium">1. Arte final (PDF):</span> Fechado bonitinho em CMYK e 300 DPI.</li>
-            <li><span className="text-foreground font-medium">2. Arquivo aberto (.PSD):</span> O arquivo editável em Photoshop com todas as camadas preservadas, organizadas e com nomes.</li>
+            <li><span className="text-foreground font-medium">2. Arquivo aberto (.PSD ou .AI):</span> O arquivo editável em Photoshop ou Illustrator com todas as camadas preservadas, organizadas e com nomes.</li>
             <li><span className="text-foreground font-medium">3. Justificativa:</span> Textinho rápido explicando por que sua arte tem a ver com o tema escolhido.</li>
           </ul>
         </div>

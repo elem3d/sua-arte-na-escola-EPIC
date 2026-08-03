@@ -597,13 +597,17 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 hover:text-foreground"
-              <div className="mt-10 md:mt-8 text-center text-xs text-muted-foreground">
+          >
+            <Instagram className="h-4 w-4" /> @epicfloripa
+          </a>
+        </div>
+      </div>
+      <div className="mt-10 md:mt-8 text-center text-xs text-muted-foreground">
         © 2026 Epic School Floripa — Concurso Sua Arte na Escola.
       </div>
     </footer>
   );
 }
-
 function FluidBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">

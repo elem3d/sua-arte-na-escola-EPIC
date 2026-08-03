@@ -71,14 +71,14 @@ const specs = [
 ];
 
 const timeline = [
-  { date: "08/08", title: "Lançamento", desc: "Abertura das inscrições pra geral." },
-  { date: "15/08 • 16h às 18h", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator." },
-  { date: "22/08 • 16h às 18h", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
-  { date: "29/08 • 16h às 18h", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
-  { date: "01–11/09", title: "Reta final de produção", desc: "Tempo livre pra focar e finalizar." },
-  { date: "12/09", title: "Deadline — 23:59", desc: "Submissões encerram em ponto.", highlight: true },
-  { date: "18–21/09", title: "Votação popular", desc: "Finalistas nos Stories do Instagram." },
-  { date: "26/09", title: "Festa de 8 anos", desc: "Revelação do mural oficial." },
+  { date: "10/08", title: "Lançamento!", desc: "Abertura das inscrições pra geral." },
+  { date: "22/08 - 16h às 18h", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator pra ajudar na arte." },
+  { date: "29/08 - 16h às 18h", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
+  { date: "05/09 - 16h às 18h", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
+  { date: "07 a 18/09", title: "Reta Final de Produção", desc: "Tempo livre pra você focar e dar os últimos retoques." },
+  { date: "19/09", title: "DEADLINE (Prazo Final)", desc: "Submissões encerram às 23:59 em ponto!", highlight: true },
+  { date: "18 a 21/09", title: "Votação Popular", desc: "Galera votando nos finalistas nos Stories do Insta!" },
+  { date: "03/10", title: "Festa de Aniversário", desc: "O grande evento de 8 anos da Epic e a revelação do mural!" },
 ];
 
 const criteria = [
@@ -215,7 +215,7 @@ function Hero() {
               ["8", "Anos de Epic"],
               ["3", "Temas para escolher"],
               ["60", "Pontos possíveis"],
-              ["12/09", "Deadline final"],
+              ["19/09", "Deadline final"],
             ].map(([v, l]) => (
               <div key={l} className="bg-background/90 backdrop-blur-xl p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
                 <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{v}</div>
@@ -579,7 +579,7 @@ function FinalCta() {
         >
           <div className="absolute inset-0 bg-grid opacity-20 mix-blend-overlay" />
           <div className="relative">
-            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 12/09 • 23:59</div>
+            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 19/09 • 23:59</div>
             <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.05]">
               Pronto para deixar<br />sua marca?
             </h2>

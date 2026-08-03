@@ -185,21 +185,21 @@ function Hero() {
             </a>
             <a
               href="#regras"
-              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-border bg-surface/60 px-6 py-3.5 sm:py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-border bg-background/90 backdrop-blur-xl px-6 py-3.5 sm:py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
             >
               Ver regulamento
             </a>
           </div>
 
           {/* Stats */}
-          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl border border-border/70 bg-border/50 overflow-hidden">
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl border border-border/70 bg-background/80 backdrop-blur-xl overflow-hidden">
             {[
               ["8", "Anos de Epic"],
               ["3", "Temas para escolher"],
               ["60", "Pontos possíveis"],
               ["12/09", "Deadline final"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-surface/80 p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <div key={l} className="bg-background/90 backdrop-blur-xl p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
                 <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{v}</div>
                 <div className="mt-1 text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">{l}</div>
               </div>
@@ -251,7 +251,7 @@ function About() {
     <Section id="sobre" eyebrow="O que é" title="Um mural pros próximos 8 anos" subtitle="O nosso aniversário tá chegando e queremos celebrar com o que vocês têm de melhor: criatividade. A arte vencedora será plotada na parede da escola.">
       <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         {items.map((it) => (
-          <div key={it.title} className="group rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
+          <div key={it.title} className="group rounded-2xl border border-border bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] p-5 md:p-6 transition-all hover:border-primary/50 hover:shadow-[var(--shadow-glow)]">
             <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-primary/15 text-primary">
               <it.icon className="h-5 w-5" />
             </div>
@@ -271,7 +271,7 @@ function Themes() {
         {themes.map((t) => (
           <article
             key={t.n}
-            className="relative overflow-hidden rounded-2xl border border-border bg-[var(--gradient-card)] p-6 md:p-8 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-glow)]"
+            className="relative overflow-hidden rounded-2xl border border-border bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] p-6 md:p-8 transition-all hover:-translate-y-1 hover:border-primary/60 hover:shadow-[var(--shadow-glow)]"
           >
             <div
               className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full opacity-30 blur-3xl"
@@ -305,7 +305,7 @@ function Specs() {
     <Section eyebrow="Especificações" title="Como a arte deve ser feita" subtitle="Só valem artes digitais — Pintura Digital, Ilustração Vetorial ou mix das duas. Como a arte vai pra uma parede gigante, essas configurações são obrigatórias.">
       <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
         {specs.map((s) => (
-          <div key={s.label} className="rounded-2xl border border-border bg-surface/60 p-4 sm:p-5 md:p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
+          <div key={s.label} className="rounded-2xl border border-border bg-background/90 backdrop-blur-xl p-4 sm:p-5 md:p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
             <s.icon className="h-5 w-5 text-primary" />
             <div className="mt-4 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
             <div className="mt-1 font-display text-xl font-semibold">{s.value}</div>
@@ -313,7 +313,7 @@ function Specs() {
         ))}
       </div>
       <div className="mt-6 md:mt-8 grid gap-4 md:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6">
+        <div className="rounded-2xl border border-border bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] p-5 md:p-6">
           <div className="font-display text-lg font-semibold flex items-center gap-2">
             <Layers className="h-5 w-5 text-primary" /> O que enviar
           </div>
@@ -323,7 +323,7 @@ function Specs() {
             <li><span className="text-foreground font-medium">3. Justificativa:</span> Textinho rápido explicando por que sua arte tem a ver com o tema escolhido.</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6">
+        <div className="rounded-2xl border border-border bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] p-5 md:p-6">
           <div className="font-display text-lg font-semibold flex items-center gap-2">
             <FileText className="h-5 w-5 text-accent" /> Onde entregar
           </div>
@@ -388,7 +388,7 @@ function Timeline() {
           {timeline.map((m, i) => (
             <li key={m.date} className={`relative flex flex-col md:flex-row md:items-center gap-4 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
               <div className="md:w-1/2 md:px-8 pl-10 md:pl-0">
-                <div className={`rounded-2xl border p-4 md:p-5 ${m.highlight ? "border-primary/60 bg-primary/10 shadow-[var(--shadow-glow)]" : "border-border bg-surface/60"}`}>
+                <div className={`rounded-2xl border p-4 md:p-5 ${m.highlight ? "border-primary/60 bg-primary/10 shadow-[var(--shadow-glow)]" : "border-border bg-background/90 backdrop-blur-xl"}`}>
                   <div className="flex items-center gap-2 font-display text-xl sm:text-2xl font-bold text-gradient">
                     <Calendar className="h-5 w-5 text-primary shrink-0" />
                     <span>{m.date}</span>
@@ -425,7 +425,7 @@ function Criteria() {
         {criteria.map((c) => {
           const pct = ((c.pts / totalPoints) * 100).toFixed(1).replace(/\.0$/, "");
           return (
-            <div key={c.name} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-border bg-surface/60 p-4 md:p-5">
+            <div key={c.name} className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 rounded-2xl border border-border bg-background/90 backdrop-blur-xl p-4 md:p-5">
               <div className="font-display text-3xl font-bold text-gradient w-16 shrink-0">{c.pts}</div>
               <div className="flex-1">
                 <div className="font-display text-base font-semibold">{c.name}</div>
@@ -441,7 +441,7 @@ function Criteria() {
           );
         })}
       </div>
-      <div className="mt-8 rounded-2xl border border-border bg-[var(--gradient-card)] p-5 md:p-6 text-center">
+      <div className="mt-8 rounded-2xl border border-border bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] p-5 md:p-6 text-center">
         <div className="font-display text-base font-semibold text-foreground">E se der empate?</div>
         <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
           A gente desempata olhando quem tirou a maior nota na <span className="text-foreground font-medium">Identidade Epic</span>, depois no <span className="text-foreground font-medium">Conceito</span> e, por último, o resultado da <span className="text-foreground font-medium">Votação Popular</span> no Instagram.
@@ -483,8 +483,8 @@ function PrizeCard({ place, items, featured = false }: { place: string; items: s
     <div
       className={`relative rounded-3xl border p-6 md:p-8 ${
         featured
-          ? "border-primary/60 bg-[var(--gradient-card)] md:scale-105 shadow-[var(--shadow-glow)] mt-4 md:mt-0"
-          : "border-border bg-surface/60"
+          ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] md:scale-105 shadow-[var(--shadow-glow)] mt-4 md:mt-0"
+          : "border-border bg-background/90 backdrop-blur-xl"
       }`}
     >
       {featured && (
@@ -612,7 +612,7 @@ function FluidBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
       {/* Subtle tech dots pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-primary)_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.07] [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-primary)_2px,transparent_2px)] [background-size:40px_40px] opacity-25 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]" />
 
       <svg
         className="absolute w-full h-full opacity-70"

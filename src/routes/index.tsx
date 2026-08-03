@@ -67,7 +67,7 @@ const specs = [
   { icon: Ruler, label: "Tamanho", value: "2,00 × 1,40 m" },
   { icon: Monitor, label: "Resolução", value: "300 DPI" },
   { icon: Palette, label: "Modo de cor", value: "CMYK" },
-  { icon: FileText, label: "Formatos", value: "PDF + PSD + AI" },
+  { icon: FileText, label: "Formatos", value: "PDF + PSD ou AI" },
 ];
 
 const timeline = [

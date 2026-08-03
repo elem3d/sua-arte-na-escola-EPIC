@@ -139,7 +139,7 @@ function Nav() {
           ))}
         </nav>
         <a
-          href="https://classroom.google.com"
+          href="https://classroom.google.com/c/ODY5MDg4MDYxMzEz?cjc=cs2b76o6"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2 text-sm font-medium text-foreground hover:bg-primary/20 transition-colors"
@@ -174,7 +174,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
             <a
-              href="https://classroom.google.com"
+              href="https://classroom.google.com/c/ODY5MDg4MDYxMzEz?cjc=cs2b76o6"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full px-6 py-3.5 sm:py-3 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition-transform hover:scale-[1.02]"
@@ -337,7 +337,7 @@ function Specs() {
       </div>
       <div className="mt-8 flex justify-center">
         <a
-          href="https://classroom.google.com"
+          href="https://classroom.google.com/c/ODY5MDg4MDYxMzEz?cjc=cs2b76o6"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-2 rounded-full border border-primary/50 bg-primary/10 px-6 py-3.5 text-sm font-semibold text-foreground hover:bg-primary/20 transition-all hover:scale-[1.02]"
@@ -539,7 +539,7 @@ function FinalCta() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 px-4 sm:px-0">
               <a
-                href="https://classroom.google.com"
+                href="https://classroom.google.com/c/ODY5MDg4MDYxMzEz?cjc=cs2b76o6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full bg-background px-7 py-3.5 text-sm font-semibold text-foreground hover:bg-background/90 transition-colors"

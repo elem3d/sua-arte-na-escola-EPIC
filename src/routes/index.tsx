@@ -105,11 +105,14 @@ function LandingPage() {
       <Hero />
       <SponsorBanner />
       <About />
+        <ParallaxDivider imagePath="/images/parallax1.png" />
       <Themes />
       <Specs />
+        <ParallaxDivider imagePath="/images/parallax2.png" />
       <AiRules />
       <Timeline />
       <Criteria />
+        <ParallaxDivider imagePath="/images/parallax3.png" />
       <Prizes />
       <RedFlags />
       <FinalCta />
@@ -150,6 +153,20 @@ function Nav() {
         </a>
       </div>
     </header>
+  );
+}
+
+
+function ParallaxDivider({ imagePath }: { imagePath: string }) {
+  return (
+    <div 
+      className="relative h-48 md:h-64 w-full bg-fixed bg-center bg-cover border-y border-border/20"
+      style={{ backgroundImage: `url(${imagePath})` }}
+    >
+      <div className="absolute inset-0 bg-background/40 backdrop-blur-[1px]" />
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-background to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent" />
+    </div>
   );
 }
 
@@ -255,8 +272,18 @@ function SponsorBanner() {
           XP-PEN
         </div>
         <p className="mt-6 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
-          A marca referência mundial em displays e mesas digitalizadoras apoia o talento da Epic School, premiando as melhores artes deste concurso.
+          A marca referência mundial em displays e mesas digitalizadoras apoia o talento da Epic School, premiando a melhor arte deste concurso.
         </p>
+        <div className="mt-8">
+          <a
+            href="https://www.storexppen.com.br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/20 transition-colors"
+          >
+            Conheça a XPPEN <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </section>
   );

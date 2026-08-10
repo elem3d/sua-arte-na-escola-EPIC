@@ -268,8 +268,16 @@ function SponsorBanner() {
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative flex flex-col items-center text-center">
         <p className="text-xs md:text-sm text-primary uppercase tracking-[0.3em] font-bold mb-4">Apoiadora Oficial</p>
-        <div className="font-display text-6xl md:text-8xl lg:text-9xl font-black tracking-tight" style={{ color: "#ffffff", textShadow: "0 0 40px rgba(255,255,255,0.2)" }}>
-          XP-PEN
+        <div className="relative group my-4 sm:my-6 flex items-center justify-center">
+          <div
+            className="absolute -inset-4 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition-opacity duration-500"
+            style={{ background: "var(--gradient-primary, #8b5cf6)" }}
+          />
+          <img
+            src="/images/logo.png"
+            alt="XP-PEN Logo"
+            className="relative h-28 sm:h-36 md:h-44 lg:h-52 w-auto object-contain filter drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] group-hover:drop-shadow-[0_0_45px_rgba(255,255,255,0.7)] transition-all duration-300 transform group-hover:scale-105"
+          />
         </div>
         <p className="mt-6 max-w-2xl text-sm md:text-base text-muted-foreground leading-relaxed">
           A marca referência mundial em displays e mesas digitalizadoras apoia o talento da Epic School, premiando a melhor arte deste concurso.

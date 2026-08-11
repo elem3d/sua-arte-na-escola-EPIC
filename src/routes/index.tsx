@@ -106,14 +106,14 @@ function LandingPage() {
       <Hero />
       <SponsorBanner />
       <About />
-        <ParallaxDivider imagePath="/images/parallax1.png" />
+      <ParallaxDivider imagePath="/images/parallax1.png" />
       <Themes />
       <Specs />
-        <ParallaxDivider imagePath="/images/parallax2.jpeg" />
+      <ParallaxDivider imagePath="/images/parallax2.jpeg" />
       <AiRules />
       <Timeline />
       <Criteria />
-        <ParallaxDivider imagePath="/images/parallax3.png" />
+      <ParallaxDivider imagePath="/images/parallax3.png" />
       <Prizes />
       <RedFlags />
       <FinalCta />
@@ -160,7 +160,7 @@ function Nav() {
 
 function ParallaxDivider({ imagePath }: { imagePath: string }) {
   return (
-    <div 
+    <div
       className="relative h-48 md:h-64 w-full bg-fixed bg-center bg-cover border-y border-border/20"
       style={{ backgroundImage: `url(${imagePath})` }}
     >
@@ -273,7 +273,7 @@ function SponsorBanner() {
     <section className="relative border-y border-primary/20 bg-primary/5 py-12 md:py-16 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-primary)_1px,transparent_1px)] [background-size:24px_24px] opacity-20" style={{ WebkitMaskImage: 'radial-gradient(ellipse at center, black, transparent 80%)' }} />
       <div className="absolute left-1/2 top-1/2 h-[300px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px] opacity-20" style={{ background: "var(--color-primary)" }} />
-      
+
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative flex flex-col items-center text-center">
         <p className="text-xs md:text-sm text-primary uppercase tracking-[0.3em] font-bold mb-4">Apoiadora Oficial</p>
         <div className="relative group my-4 sm:my-6 flex items-center justify-center">
@@ -462,9 +462,8 @@ function Timeline() {
                 </div>
               </div>
               <div
-                className={`absolute left-4 md:left-1/2 h-3 w-3 -translate-x-1/2 rounded-full border-2 ${
-                  m.highlight ? "border-primary bg-primary shadow-[0_0_16px_var(--color-primary)]" : "border-primary/70 bg-background"
-                }`}
+                className={`absolute left-4 md:left-1/2 h-3 w-3 -translate-x-1/2 rounded-full border-2 ${m.highlight ? "border-primary bg-primary shadow-[0_0_16px_var(--color-primary)]" : "border-primary/70 bg-background"
+                  }`}
               />
               <div className="hidden md:block md:w-1/2" />
             </li>
@@ -548,28 +547,26 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div 
-      className={`relative h-[450px] w-full [perspective:1000px] group ${
-        featured ? "md:scale-105 mt-4 md:mt-0" : ""
-      } ${!isFlipped ? "cursor-pointer" : "cursor-default"}`}
+    <div
+      className={`relative h-[450px] w-full [perspective:1000px] group ${featured ? "md:scale-105 mt-4 md:mt-0" : ""
+        } ${!isFlipped ? "cursor-pointer" : "cursor-default"}`}
       onClick={() => {
         if (!isFlipped) setIsFlipped(true);
       }}
     >
-      <div 
+      <div
         className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
       >
         {/* FRONT */}
-        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] flex flex-col items-center rounded-3xl border bg-background/90 ${
-          featured ? "border-primary/60 shadow-[var(--shadow-glow)] bg-[var(--gradient-card)]" : "border-border overflow-hidden"
-        }`}>
+        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] flex flex-col items-center rounded-3xl border bg-background/90 ${featured ? "border-primary/60 shadow-[var(--shadow-glow)] bg-[var(--gradient-card)]" : "border-border overflow-hidden"
+          }`}>
           <div className="relative z-10 flex flex-col items-center h-full w-full p-6 md:p-8 justify-start">
             {featured && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-50" style={{ background: "var(--gradient-primary)" }}>
                 Grande prêmio
               </div>
             )}
-            
+
             {featured ? (
               <>
                 <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 relative z-40 mt-4">
@@ -587,15 +584,14 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                 </div>
               </div>
             )}
-            
+
             <div className="flex-1 w-full flex items-center justify-center relative mt-4 mb-2">
-              <img src={image} alt={`Prêmio ${place}`} className={`absolute transition-transform duration-700 z-30 drop-shadow-2xl ${
-                !featured 
-                  ? 'w-[90%] aspect-square object-cover rounded-2xl border border-border/30 bg-background/20' 
+              <img src={image} alt={`Prêmio ${place}`} className={`absolute transition-transform duration-700 z-30 drop-shadow-2xl ${!featured
+                  ? 'w-[90%] aspect-square object-cover rounded-2xl border border-border/30 bg-background/20'
                   : 'w-[120%] max-w-[120%] object-contain'
-              } ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
+                } ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
             </div>
-            
+
             <p className="text-foreground/90 text-xs mt-auto uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50 z-20">
               <Sparkles className={`w-3.5 h-3.5 ${featured ? "text-primary" : "text-foreground"}`} /> Clique para virar
             </p>
@@ -603,10 +599,9 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
         </div>
 
         {/* BACK */}
-        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center rounded-3xl border p-6 md:p-8 overflow-hidden ${
-          featured ? "border-primary/60 shadow-[var(--shadow-glow)]" 
-                   : "border-border"
-        }`}>
+        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center rounded-3xl border p-6 md:p-8 overflow-hidden ${featured ? "border-primary/60 shadow-[var(--shadow-glow)]"
+            : "border-border"
+          }`}>
           <img src={image} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 scale-125" />
           <div className={`absolute inset-0 ${featured ? "bg-background/80 bg-[var(--gradient-card)]" : "bg-background/90"}`} />
 
@@ -616,10 +611,10 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                 Detalhes
               </div>
             )}
-            
+
             <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
             <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
-            
+
             <ul className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4">
               {items.map((it) => {
                 const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
@@ -628,10 +623,10 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                     <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
                     <span>{it}</span>
                     {isTablet && featured && (
-                      <a 
-                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer pointer-events-auto"
                         onClick={(e) => e.stopPropagation()}
                       >
@@ -795,7 +790,7 @@ function FluidBackground() {
           {/* Middle Section */}
           <path className="text-accent opacity-40" strokeDasharray="12 6" d="M-100,1400 C300,1200 600,1700 1000,1300 S1400,1600 1600,1400" />
           <path className="text-primary opacity-20" strokeWidth="1.5" d="M1600,1500 C1100,1400 800,1900 400,1600 S0,1800 -100,1700" />
-          
+
           {/* Vertical Connectors */}
           <path className="text-foreground opacity-[0.05]" d="M300,-100 C400,500 100,1000 300,1500 S500,2500 300,3100" />
           <path className="text-foreground opacity-[0.05]" d="M1200,-100 C1100,400 1400,1100 1100,1800 S1300,2600 1100,3100" />

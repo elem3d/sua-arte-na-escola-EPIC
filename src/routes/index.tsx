@@ -620,12 +620,7 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
             <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
             
-            <ul 
-              className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4 cursor-default"
-              onClick={(e) => e.stopPropagation()}
-              onMouseDown={(e) => e.stopPropagation()}
-              onTouchStart={(e) => e.stopPropagation()}
-            >
+            <ul className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4">
               {items.map((it) => {
                 const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
                 return (
@@ -633,20 +628,15 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                     <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
                     <span>{it}</span>
                     {isTablet && featured && (
-                      <button 
-                        type="button"
-                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          window.open("https://www.storexppen.com.br/buy/artist-12-3rd.html", "_blank");
-                        }}
-                        onMouseDown={(e) => e.stopPropagation()}
-                        onMouseUp={(e) => e.stopPropagation()}
-                        onTouchStart={(e) => e.stopPropagation()}
-                        onTouchEnd={(e) => e.stopPropagation()}
+                      <a 
+                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer pointer-events-auto"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         Detalhes do produto
-                      </button>
+                      </a>
                     )}
                   </li>
                 );

@@ -531,8 +531,7 @@ function Prizes() {
           items={[
             "Arte GIGANTE plotada na parede em frente ao Laboratório G1",
             "Mesa Digitalizadora XP-PEN Artist 12 3rd Gen com display",
-            "Arte impressa em A3",
-            "Muito destaque nas redes sociais",
+            "Arte impressa em A3"
           ]}
         />
         <PrizeCard
@@ -619,18 +618,23 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
             <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
             
-            <ul className="space-y-5 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 overflow-y-auto pb-4">
+            <ul className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4">
               {items.map((it) => {
                 const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
                 return (
                   <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
                     <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
-                    {isTablet ? (
-                      <a href="https://www.storexppen.com.br/buy/artist-12-3rd.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline underline-offset-4 decoration-primary/50">
-                        {it}
+                    <span>{it}</span>
+                    {isTablet && featured && (
+                      <a 
+                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Detalhes do produto
                       </a>
-                    ) : (
-                      <span>{it}</span>
                     )}
                   </li>
                 );

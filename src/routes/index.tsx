@@ -618,7 +618,12 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
             <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
             
-            <ul className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4">
+            <ul 
+              className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4 cursor-default"
+              onClick={(e) => e.stopPropagation()}
+              onMouseDown={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+            >
               {items.map((it) => {
                 const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
                 return (

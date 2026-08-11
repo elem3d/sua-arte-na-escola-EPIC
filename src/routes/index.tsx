@@ -178,16 +178,14 @@ function Hero() {
         style={{ background: "var(--gradient-primary)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 md:pt-24 md:pb-32">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center gap-4 rounded-full border border-primary/30 bg-primary/10 px-6 py-2 shadow-sm mb-4">
-            <img src="/images/logo.png" alt="XP-PEN" className="h-5 sm:h-6 object-contain" />
-            <span className="text-primary-foreground/70 font-semibold text-sm">&</span>
-            <img src="/images/LOGO-EPIC.png" alt="Epic" className="h-5 sm:h-6 object-contain" />
-            <span className="text-primary-foreground/90 font-medium text-xs sm:text-sm uppercase tracking-widest ml-1">apresentam</span>
+          <div className="inline-flex items-center justify-center gap-6 md:gap-8 rounded-[2rem] border border-primary/20 bg-background/50 backdrop-blur-sm px-8 py-4 md:px-10 md:py-6 shadow-lg mb-8">
+            <img src="/images/logo.png" alt="XP-PEN" className="h-10 sm:h-12 md:h-16 object-contain drop-shadow-md" />
+            <span className="text-muted-foreground font-semibold text-lg md:text-xl">&</span>
+            <img src="/images/LOGO-EPIC.png" alt="Epic" className="h-10 sm:h-12 md:h-16 object-contain drop-shadow-md" />
+            <span className="text-primary-foreground/90 font-medium text-sm md:text-base uppercase tracking-[0.2em] ml-2">apresentam</span>
           </div>
-          <h1 className="mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
-            Sua Arte
-            <br />
-            <span className="text-gradient font-serif italic font-normal">na Escola.</span>
+          <h1 className="mt-4 md:mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
+            Sua Arte <span className="text-gradient font-serif italic font-normal">na Escola.</span>
           </h1>
           <p className="mx-auto mt-5 md:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0">
             A ilustração vencedora vai ser impressa em uma parede de destaque da escola.

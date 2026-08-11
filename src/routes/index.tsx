@@ -588,7 +588,7 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             
             <div className="flex-1 w-full flex items-center justify-center relative mt-4 mb-2">
               <img src={image} alt={`Prêmio ${place}`} className={`absolute transition-transform duration-700 z-30 drop-shadow-2xl ${
-                place === '3º Lugar' 
+                !featured 
                   ? 'w-[90%] aspect-square object-cover rounded-2xl border border-border/30 bg-background/20' 
                   : 'w-[120%] max-w-[120%] object-contain'
               } ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
@@ -632,6 +632,10 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                         rel="noopener noreferrer" 
                         className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md"
                         onClick={(e) => e.stopPropagation()}
+                        onMouseDown={(e) => e.stopPropagation()}
+                        onMouseUp={(e) => e.stopPropagation()}
+                        onTouchStart={(e) => e.stopPropagation()}
+                        onTouchEnd={(e) => e.stopPropagation()}
                       >
                         Detalhes do produto
                       </a>

@@ -569,15 +569,15 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
               </div>
             )}
             
-            <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 z-20">
+            <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 relative z-40">
               <Trophy className={`h-8 w-8 ${featured ? "text-primary" : "text-foreground"}`} />
             </div>
-            <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] z-20">
+            <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] relative z-40">
               {place}
             </div>
             
             <div className="flex-1 w-full flex items-center justify-center relative mt-2 mb-2">
-              <img src={image} alt={`Prêmio ${place}`} className={`absolute w-[120%] max-w-[120%] object-contain transition-transform duration-700 group-hover:scale-[1.35] z-30 drop-shadow-2xl ${featured ? "scale-[1.1]" : "scale-100"}`} />
+              <img src={image} alt={`Prêmio ${place}`} className={`absolute w-[120%] max-w-[120%] object-contain transition-transform duration-700 z-30 drop-shadow-2xl ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
             </div>
             
             <p className="text-foreground/90 text-xs mt-auto uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50 z-20">

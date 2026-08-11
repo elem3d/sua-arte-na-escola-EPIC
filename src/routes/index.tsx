@@ -549,10 +549,12 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
 
   return (
     <div 
-      className={`relative h-[450px] w-full [perspective:1000px] cursor-pointer group ${
+      className={`relative h-[450px] w-full [perspective:1000px] group ${
         featured ? "md:scale-105 mt-4 md:mt-0" : ""
-      }`}
-      onClick={() => setIsFlipped(!isFlipped)}
+      } ${!isFlipped ? "cursor-pointer" : "cursor-default"}`}
+      onClick={() => {
+        if (!isFlipped) setIsFlipped(true);
+      }}
     >
       <div 
         className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}

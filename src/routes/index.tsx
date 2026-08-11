@@ -569,15 +569,30 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
               </div>
             )}
             
-            <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 relative z-40">
-              <Trophy className={`h-8 w-8 ${featured ? "text-primary" : "text-foreground"}`} />
-            </div>
-            <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] relative z-40">
-              {place}
-            </div>
+            {featured ? (
+              <>
+                <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 relative z-40 mt-4">
+                  <Trophy className="h-8 w-8 text-primary" />
+                </div>
+                <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] relative z-40">
+                  {place}
+                </div>
+              </>
+            ) : (
+              <div className="flex items-center gap-3 bg-background/60 backdrop-blur-xl px-6 py-3 rounded-full border border-border/50 relative z-40 w-full justify-center">
+                <Trophy className="h-7 w-7 text-foreground drop-shadow-md" />
+                <div className="font-display text-3xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_15px_rgba(192,132,252,0.9)]">
+                  {place}
+                </div>
+              </div>
+            )}
             
-            <div className="flex-1 w-full flex items-center justify-center relative mt-2 mb-2">
-              <img src={image} alt={`Prêmio ${place}`} className={`absolute w-[120%] max-w-[120%] object-contain transition-transform duration-700 z-30 drop-shadow-2xl ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
+            <div className="flex-1 w-full flex items-center justify-center relative mt-4 mb-2">
+              <img src={image} alt={`Prêmio ${place}`} className={`absolute transition-transform duration-700 z-30 drop-shadow-2xl ${
+                place === '3º Lugar' 
+                  ? 'w-[90%] aspect-square object-cover rounded-2xl border border-border/30 bg-background/20' 
+                  : 'w-[120%] max-w-[120%] object-contain'
+              } ${featured ? "scale-[1.1] group-hover:scale-[1.35]" : "scale-100"}`} />
             </div>
             
             <p className="text-foreground/90 text-xs mt-auto uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50 z-20">
@@ -602,15 +617,24 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             )}
             
             <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
-            <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place} - Verso</div>
+            <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
             
             <ul className="space-y-5 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 overflow-y-auto pb-4">
-              {items.map((it) => (
-                <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
-                  <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
-                  <span>{it}</span>
-                </li>
-              ))}
+              {items.map((it) => {
+                const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
+                return (
+                  <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
+                    <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
+                    {isTablet ? (
+                      <a href="https://www.storexppen.com.br/buy/artist-12-3rd.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors hover:underline underline-offset-4 decoration-primary/50">
+                        {it}
+                      </a>
+                    ) : (
+                      <span>{it}</span>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

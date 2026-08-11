@@ -559,78 +559,60 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
         className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
       >
         {/* FRONT */}
-        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] flex flex-col items-center rounded-3xl border ${
-          featured ? "border-primary/60 shadow-[var(--shadow-glow)] bg-background/90 bg-[var(--gradient-card)]" : "border-border overflow-hidden justify-center"
+        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] flex flex-col items-center rounded-3xl border bg-background/90 ${
+          featured ? "border-primary/60 shadow-[var(--shadow-glow)] bg-[var(--gradient-card)]" : "border-border overflow-hidden"
         }`}>
-          {!featured && (
-            <>
-              <img src={image} alt={`Prêmio ${place}`} className="absolute inset-0 w-full h-full object-cover scale-125 transition-transform duration-700 group-hover:scale-[1.35]" />
-              <div className="absolute inset-0 bg-background/40" />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-background/90" />
-            </>
-          )}
-
-          <div className={`relative z-10 flex flex-col items-center h-full w-full p-6 md:p-8 ${featured ? "justify-start" : "justify-center"}`}>
+          <div className="relative z-10 flex flex-col items-center h-full w-full p-6 md:p-8 justify-start">
             {featured && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-50" style={{ background: "var(--gradient-primary)" }}>
                 Grande prêmio
               </div>
             )}
             
-            {featured ? (
-              <>
-                <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50">
-                  <Trophy className="h-8 w-8 text-primary" />
-                </div>
-                <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] z-20">
-                  {place}
-                </div>
-                
-                <div className="flex-1 w-full flex items-center justify-center relative mt-2 mb-2">
-                  <img src={image} alt={`Prêmio ${place}`} className="absolute w-[120%] max-w-[120%] object-contain scale-[1.1] transition-transform duration-700 group-hover:scale-[1.35] z-30 drop-shadow-2xl" />
-                </div>
-                
-                <p className="text-foreground/90 text-xs mt-auto uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50 z-20">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" /> Clique para virar
-                </p>
-              </>
-            ) : (
-              <>
-                <div className="flex-1 flex flex-col items-center justify-center">
-                  <div className="bg-background/40 backdrop-blur-md p-4 rounded-full mb-4 border border-border/50">
-                    <Trophy className="h-8 w-8 text-foreground" />
-                  </div>
-                  <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)]">{place}</div>
-                </div>
-                
-                <p className="text-foreground/90 text-xs mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" /> Clique para virar
-                </p>
-              </>
-            )}
+            <div className="bg-background/40 backdrop-blur-md p-3 rounded-full mb-2 border border-border/50 z-20">
+              <Trophy className={`h-8 w-8 ${featured ? "text-primary" : "text-foreground"}`} />
+            </div>
+            <div className="font-display text-4xl font-bold text-white drop-shadow-xl transition-all duration-500 group-hover:text-purple-200 group-hover:drop-shadow-[0_0_20px_rgba(192,132,252,0.9)] z-20">
+              {place}
+            </div>
+            
+            <div className="flex-1 w-full flex items-center justify-center relative mt-2 mb-2">
+              <img src={image} alt={`Prêmio ${place}`} className={`absolute w-[120%] max-w-[120%] object-contain transition-transform duration-700 group-hover:scale-[1.35] z-30 drop-shadow-2xl ${featured ? "scale-[1.1]" : "scale-100"}`} />
+            </div>
+            
+            <p className="text-foreground/90 text-xs mt-auto uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50 z-20">
+              <Sparkles className={`w-3.5 h-3.5 ${featured ? "text-primary" : "text-foreground"}`} /> Clique para virar
+            </p>
           </div>
         </div>
 
         {/* BACK */}
-        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-start rounded-3xl border p-6 md:p-8 ${
-          featured ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] shadow-[var(--shadow-glow)]" 
-                   : "border-border bg-background/90 backdrop-blur-xl"
+        <div className={`absolute inset-0 [backface-visibility:hidden] [-webkit-backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-center rounded-3xl border p-6 md:p-8 overflow-hidden ${
+          featured ? "border-primary/60 shadow-[var(--shadow-glow)]" 
+                   : "border-border"
         }`}>
-          {featured && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-10" style={{ background: "var(--gradient-primary)" }}>
-              Detalhes
-            </div>
-          )}
-          <Trophy className={`h-6 w-6 mt-2 mb-2 ${featured ? "text-primary" : "text-muted-foreground"}`} />
-          <div className={`font-display text-xl font-bold mb-6 ${featured ? "text-gradient" : ""}`}>{place} - Verso</div>
-          <ul className="space-y-4 text-sm w-full text-left flex-1 overflow-y-auto pr-2">
-            {items.map((it) => (
-              <li key={it} className="flex gap-3 text-muted-foreground">
-                <Check className="h-5 w-5 shrink-0 mt-0.5 text-accent" />
-                <span>{it}</span>
-              </li>
-            ))}
-          </ul>
+          <img src={image} alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 scale-125" />
+          <div className={`absolute inset-0 ${featured ? "bg-background/80 bg-[var(--gradient-card)]" : "bg-background/90"}`} />
+
+          <div className="relative z-10 flex flex-col items-center w-full h-full">
+            {featured && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-10" style={{ background: "var(--gradient-primary)" }}>
+                Detalhes
+              </div>
+            )}
+            
+            <Trophy className={`h-8 w-8 mt-2 mb-4 drop-shadow-md ${featured ? "text-primary" : "text-foreground"}`} />
+            <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place} - Verso</div>
+            
+            <ul className="space-y-5 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 overflow-y-auto pb-4">
+              {items.map((it) => (
+                <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
+                  <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
+                  <span>{it}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

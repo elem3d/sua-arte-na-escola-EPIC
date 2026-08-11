@@ -108,7 +108,7 @@ function LandingPage() {
         <ParallaxDivider imagePath="/images/parallax1.png" />
       <Themes />
       <Specs />
-        <ParallaxDivider imagePath="/images/parallax2.png" />
+        <ParallaxDivider imagePath="/images/parallax2.jpeg" />
       <AiRules />
       <Timeline />
       <Criteria />
@@ -178,18 +178,19 @@ function Hero() {
         style={{ background: "var(--gradient-primary)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 md:pt-24 md:pb-32">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center justify-center gap-6 md:gap-8 rounded-[2rem] border border-primary/20 bg-background/50 backdrop-blur-sm px-8 py-4 md:px-10 md:py-6 shadow-lg mb-8">
-            <img src="/images/logo.png" alt="XP-PEN" className="h-10 sm:h-12 md:h-16 object-contain drop-shadow-md" />
-            <span className="text-muted-foreground font-semibold text-lg md:text-xl">&</span>
-            <img src="/images/LOGO-EPIC.png" alt="Epic" className="h-10 sm:h-12 md:h-16 object-contain drop-shadow-md" />
-            <span className="text-primary-foreground/90 font-medium text-sm md:text-base uppercase tracking-[0.2em] ml-2">apresentam</span>
+          <div className="flex flex-col items-center justify-center gap-4 mb-10">
+            <div className="flex items-center justify-center gap-6 md:gap-12">
+              <img src="/images/logo.png" alt="XP-PEN" className="h-12 sm:h-16 md:h-24 object-contain drop-shadow-xl" />
+              <span className="text-muted-foreground/60 font-semibold text-2xl md:text-3xl">&</span>
+              <img src="/images/LOGO-EPIC.png" alt="Epic" className="h-12 sm:h-16 md:h-24 object-contain drop-shadow-xl" />
+            </div>
+            <span className="text-muted-foreground font-medium text-xs sm:text-sm uppercase tracking-[0.3em]">apresentam</span>
           </div>
           <h1 className="mt-4 md:mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Sua Arte <span className="text-gradient font-serif italic font-normal">na Escola.</span>
           </h1>
           <p className="mx-auto mt-5 md:mt-6 max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed px-2 sm:px-0">
-            A ilustração vencedora vai ser impressa em uma parede de destaque da escola.
-            Todo mundo que passar pela Epic vai ver o seu talento. Bora?
+            O 1º lugar vai levar para casa uma incrível <strong className="text-foreground font-semibold text-primary">mesa digitalizadora Artist 12 3rd com display da XP-PEN</strong>! E não para por aí: a ilustração vencedora ainda será impressa em uma parede de destaque da escola. Bora mostrar o seu talento?
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 w-full px-4 sm:px-0">
             <a
@@ -725,7 +726,7 @@ function FluidBackground() {
       <img src="/images/tablet.png" alt="" className="absolute top-[5%] -left-[10vw] w-[40vw] max-w-[500px] opacity-30 mix-blend-lighten animate-[pulse_10s_ease-in-out_infinite]" style={{ transform: 'rotate(15deg)', WebkitMaskImage: 'radial-gradient(closest-side, black 20%, transparent 100%)' }} />
       <img src="/images/paintbrush.png" alt="" className="absolute top-[30%] -right-[5vw] w-[35vw] max-w-[450px] opacity-30 mix-blend-lighten animate-[pulse_12s_ease-in-out_infinite_reverse]" style={{ transform: 'rotate(-10deg)', WebkitMaskImage: 'radial-gradient(closest-side, black 20%, transparent 100%)' }} />
       <img src="/images/stylus.png" alt="" className="absolute top-[60%] -left-[5vw] w-[35vw] max-w-[450px] opacity-20 mix-blend-lighten animate-[pulse_14s_ease-in-out_infinite]" style={{ transform: 'rotate(25deg)', WebkitMaskImage: 'radial-gradient(closest-side, black 20%, transparent 100%)' }} />
-      <img src="/images/colors.png" alt="" className="absolute top-[85%] -right-[10vw] w-[45vw] max-w-[550px] opacity-20 mix-blend-lighten animate-[pulse_15s_ease-in-out_infinite_reverse]" style={{ transform: 'rotate(-5deg)', WebkitMaskImage: 'radial-gradient(closest-side, black 20%, transparent 100%)' }} />
+
     </div>
   );
 }

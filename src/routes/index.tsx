@@ -178,10 +178,12 @@ function Hero() {
         style={{ background: "var(--gradient-primary)" }} />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 pt-20 pb-24 md:pt-24 md:pb-32">
         <div className="mx-auto max-w-4xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary-foreground/90 uppercase tracking-wider">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            XP-PEN em parceria com a Epic apresenta
-          </span>
+          <div className="inline-flex items-center gap-4 rounded-full border border-primary/30 bg-primary/10 px-6 py-2 shadow-sm mb-4">
+            <img src="/images/logo.png" alt="XP-PEN" className="h-5 sm:h-6 object-contain" />
+            <span className="text-primary-foreground/70 font-semibold text-sm">&</span>
+            <img src="/images/LOGO-EPIC.png" alt="Epic" className="h-5 sm:h-6 object-contain" />
+            <span className="text-primary-foreground/90 font-medium text-xs sm:text-sm uppercase tracking-widest ml-1">apresentam</span>
+          </div>
           <h1 className="mt-8 font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.05]">
             Sua Arte
             <br />

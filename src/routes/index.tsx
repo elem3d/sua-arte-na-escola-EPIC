@@ -208,6 +208,12 @@ function Hero() {
             >
               Ver regulamento
             </a>
+            <a
+              href="#premios"
+              className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-border bg-background/90 backdrop-blur-xl px-6 py-3.5 sm:py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
+            >
+              Ver premiação
+            </a>
           </div>
 
           {/* Stats */}

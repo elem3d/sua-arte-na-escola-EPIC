@@ -559,23 +559,31 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
         className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
       >
         {/* FRONT */}
-        <div className={`absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-center rounded-3xl border p-6 md:p-8 ${
-          featured ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] shadow-[var(--shadow-glow)]" 
-                   : "border-border bg-background/90 backdrop-blur-xl"
+        <div className={`absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-center rounded-3xl border overflow-hidden ${
+          featured ? "border-primary/60 shadow-[var(--shadow-glow)]" : "border-border"
         }`}>
-          {featured && (
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-10" style={{ background: "var(--gradient-primary)" }}>
-              Grande prêmio
+          <img src={image} alt={`Prêmio ${place}`} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-background/90" />
+
+          <div className="relative z-10 flex flex-col items-center justify-center h-full w-full p-6 md:p-8">
+            {featured && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-20" style={{ background: "var(--gradient-primary)" }}>
+                Grande prêmio
+              </div>
+            )}
+            
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="bg-background/40 backdrop-blur-md p-4 rounded-full mb-4 border border-border/50">
+                <Trophy className={`h-8 w-8 ${featured ? "text-primary" : "text-foreground"}`} />
+              </div>
+              <div className={`font-display text-4xl font-bold drop-shadow-xl ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
             </div>
-          )}
-          <Trophy className={`h-8 w-8 mb-4 ${featured ? "text-primary" : "text-muted-foreground"}`} />
-          <div className={`font-display text-3xl font-bold ${featured ? "text-gradient" : ""}`}>{place}</div>
-          <div className="flex-1 flex items-center justify-center w-full mt-4">
-            <img src={image} alt={`Prêmio ${place}`} className="w-full max-h-[160px] object-contain drop-shadow-xl rounded-xl" />
+            
+            <p className="text-foreground/90 text-xs mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2 bg-background/60 backdrop-blur-md px-5 py-2.5 rounded-full border border-border/50">
+              <Sparkles className="w-3.5 h-3.5 text-primary" /> Clique para virar
+            </p>
           </div>
-          <p className="text-muted-foreground/60 text-[10px] mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2">
-            <Sparkles className="w-3 h-3" /> Clique para ver mais
-          </p>
         </div>
 
         {/* BACK */}

@@ -626,19 +626,20 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
                     <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
                     <span>{it}</span>
                     {isTablet && featured && (
-                      <a 
-                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md"
-                        onClick={(e) => e.stopPropagation()}
+                      <button 
+                        type="button"
+                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open("https://www.storexppen.com.br/buy/artist-12-3rd.html", "_blank");
+                        }}
                         onMouseDown={(e) => e.stopPropagation()}
                         onMouseUp={(e) => e.stopPropagation()}
                         onTouchStart={(e) => e.stopPropagation()}
                         onTouchEnd={(e) => e.stopPropagation()}
                       >
                         Detalhes do produto
-                      </a>
+                      </button>
                     )}
                   </li>
                 );

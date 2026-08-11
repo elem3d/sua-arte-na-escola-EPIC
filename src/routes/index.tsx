@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { useState } from "react";
 import {
   ArrowRight,
   Sparkles,
@@ -520,20 +521,23 @@ function Prizes() {
       <div className="grid gap-4 md:gap-6 md:grid-cols-3 items-stretch md:items-end">
         <PrizeCard
           place="2º Lugar"
+          image="/images/heroisDaPizza.jpeg"
           items={["Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
         <PrizeCard
           place="1º Lugar"
           featured
+          image="/images/premio.png"
           items={[
             "Arte GIGANTE plotada na parede em frente ao Laboratório G1",
-            "Mesa digitalizadora / tablet de pintura digital",
+            "Mesa Digitalizadora XP-PEN Artist 12 3rd Gen com display",
             "Arte impressa em A3",
             "Muito destaque nas redes sociais",
           ]}
         />
         <PrizeCard
           place="3º Lugar"
+          image="/images/cineplay.png"
           items={["Combo Cineplay", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
       </div>
@@ -541,30 +545,61 @@ function Prizes() {
   );
 }
 
-function PrizeCard({ place, items, featured = false }: { place: string; items: string[]; featured?: boolean }) {
+function PrizeCard({ place, items, featured = false, image }: { place: string; items: string[]; featured?: boolean; image: string }) {
+  const [isFlipped, setIsFlipped] = useState(false);
+
   return (
-    <div
-      className={`relative rounded-3xl border p-6 md:p-8 ${
-        featured
-          ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] md:scale-105 shadow-[var(--shadow-glow)] mt-4 md:mt-0"
-          : "border-border bg-background/90 backdrop-blur-xl"
+    <div 
+      className={`relative h-[450px] w-full [perspective:1000px] cursor-pointer group ${
+        featured ? "md:scale-105 mt-4 md:mt-0" : ""
       }`}
+      onClick={() => setIsFlipped(!isFlipped)}
     >
-      {featured && (
-        <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>
-          Grande prêmio
+      <div 
+        className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
+      >
+        {/* FRONT */}
+        <div className={`absolute inset-0 [backface-visibility:hidden] flex flex-col items-center justify-center rounded-3xl border p-6 md:p-8 ${
+          featured ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] shadow-[var(--shadow-glow)]" 
+                   : "border-border bg-background/90 backdrop-blur-xl"
+        }`}>
+          {featured && (
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-10" style={{ background: "var(--gradient-primary)" }}>
+              Grande prêmio
+            </div>
+          )}
+          <Trophy className={`h-8 w-8 mb-4 ${featured ? "text-primary" : "text-muted-foreground"}`} />
+          <div className={`font-display text-3xl font-bold ${featured ? "text-gradient" : ""}`}>{place}</div>
+          <div className="flex-1 flex items-center justify-center w-full mt-4">
+            <img src={image} alt={`Prêmio ${place}`} className="w-full max-h-[160px] object-contain drop-shadow-xl rounded-xl" />
+          </div>
+          <p className="text-muted-foreground/60 text-[10px] mt-4 uppercase tracking-[0.2em] font-medium flex items-center gap-2">
+            <Sparkles className="w-3 h-3" /> Clique para ver mais
+          </p>
         </div>
-      )}
-      <Trophy className={`h-7 w-7 ${featured ? "text-primary" : "text-muted-foreground"}`} />
-      <div className={`mt-4 font-display text-2xl font-bold ${featured ? "text-gradient" : ""}`}>{place}</div>
-      <ul className="mt-6 space-y-3 text-sm">
-        {items.map((it) => (
-          <li key={it} className="flex gap-2 text-muted-foreground">
-            <Check className="h-4 w-4 shrink-0 mt-0.5 text-accent" />
-            <span>{it}</span>
-          </li>
-        ))}
-      </ul>
+
+        {/* BACK */}
+        <div className={`absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] flex flex-col items-center justify-start rounded-3xl border p-6 md:p-8 ${
+          featured ? "border-primary/60 bg-background/95 backdrop-blur-xl bg-[var(--gradient-card)] shadow-[var(--shadow-glow)]" 
+                   : "border-border bg-background/90 backdrop-blur-xl"
+        }`}>
+          {featured && (
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground z-10" style={{ background: "var(--gradient-primary)" }}>
+              Detalhes
+            </div>
+          )}
+          <Trophy className={`h-6 w-6 mt-2 mb-2 ${featured ? "text-primary" : "text-muted-foreground"}`} />
+          <div className={`font-display text-xl font-bold mb-6 ${featured ? "text-gradient" : ""}`}>{place} - Verso</div>
+          <ul className="space-y-4 text-sm w-full text-left flex-1 overflow-y-auto pr-2">
+            {items.map((it) => (
+              <li key={it} className="flex gap-3 text-muted-foreground">
+                <Check className="h-5 w-5 shrink-0 mt-0.5 text-accent" />
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

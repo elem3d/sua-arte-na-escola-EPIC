@@ -26,13 +26,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Concurso de ilustração dos 8 anos da Epic School: crie a arte oficial do mural da escola e concorra a uma mesa digitalizadora. Inscrições até 12/09.",
+          "Concurso de ilustração dos 8 anos da Epic School: crie a arte oficial do mural da escola e concorra a uma mesa digitalizadora. Inscrições até 23/09.",
       },
       { property: "og:title", content: "Concurso Sua Arte na Escola | Epic School Floripa" },
       {
         property: "og:description",
         content:
-          "Deixe sua marca no mural oficial da Epic. Pintura Digital, Ilustração Vetorial e muito mais. Deadline 12/09.",
+          "Deixe sua marca no mural oficial da Epic. Pintura Digital, Ilustração Vetorial e muito mais. Deadline 23/09.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -72,13 +72,13 @@ const specs = [
 ];
 
 const timeline = [
-  { date: "10/08", title: "Lançamento!", desc: "Abertura das inscrições pra geral." },
+  { date: "13/08", title: "Lançamento!", desc: "Abertura das inscrições pra geral." },
   { date: "22/08 - 16h às 18h", title: "Workshop 1: Vetorização", desc: "Aula extra de Illustrator pra ajudar na arte." },
   { date: "29/08 - 16h às 18h", title: "Workshop 2: Pintura Digital", desc: "Aula extra de Photoshop." },
   { date: "05/09 - 16h às 18h", title: "Workshop 3: Técnico", desc: "Como fechar e entregar o arquivo certinho." },
-  { date: "07 a 18/09", title: "Reta Final de Produção", desc: "Tempo livre pra você focar e dar os últimos retoques." },
-  { date: "19/09", title: "DEADLINE (Prazo Final)", desc: "Submissões encerram às 23:59 em ponto!", highlight: true },
-  { date: "18 a 21/09", title: "Votação Popular", desc: "Galera votando nos finalistas nos Stories do Insta!" },
+  { date: "07 a 22/09", title: "Reta Final de Produção", desc: "Tempo livre pra você focar e dar os últimos retoques." },
+  { date: "23/09", title: "DEADLINE (Prazo Final)", desc: "Submissões encerram às 23:59 em ponto!", highlight: true },
+  { date: "29 e 30/09", title: "Votação Popular", desc: "Galera votando nos finalistas no Insta!" },
   { date: "03/10", title: "Festa de Aniversário", desc: "O grande evento de 8 anos da Epic e a revelação do mural!" },
 ];
 
@@ -223,7 +223,7 @@ function Hero() {
               ["8", "Anos de Epic"],
               ["3", "Temas para escolher"],
               ["60", "Pontos possíveis"],
-              ["19/09", "Deadline final"],
+              ["23/09", "Deadline final"],
             ].map(([v, l]) => (
               <div key={l} className="bg-background/90 backdrop-blur-xl p-4 sm:p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
                 <div className="font-display text-2xl sm:text-3xl font-bold text-gradient">{v}</div>
@@ -669,7 +669,7 @@ function FinalCta() {
         >
           <div className="absolute inset-0 bg-grid opacity-20 mix-blend-overlay" />
           <div className="relative">
-            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 19/09 • 23:59</div>
+            <div className="text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-white/80">Deadline 23/09 • 23:59</div>
             <h2 className="mt-4 font-display text-3xl sm:text-4xl md:text-6xl font-bold text-white leading-[1.05]">
               Pronto para deixar<br />sua marca?
             </h2>

@@ -133,9 +133,8 @@ function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
-          <span className="inline-block h-2 w-2 rounded-full bg-primary shadow-[0_0_12px_var(--color-primary)]" />
-          EPIC<span className="text-muted-foreground font-normal">School</span>
+        <a href="#top" className="flex items-center">
+          <img src="/images/LOGO-EPIC.png" alt="Epic School" className="h-6 md:h-8 object-contain" />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {links.map(([label, href]) => {
@@ -360,8 +359,8 @@ function Themes() {
       </div>
 
       <div className="mt-10 rounded-2xl border border-accent/40 bg-accent/5 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center gap-4">
-        <div className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent/20 text-accent">
-          <Sparkles className="h-5 w-5" />
+        <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/20">
+          <img src="/android-chrome-192x192.png" alt="Elmo Epic" className="h-8 w-8 object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.7)]" />
         </div>
         <div>
           <div className="font-display text-lg font-semibold">Identidade Epic é obrigatória</div>

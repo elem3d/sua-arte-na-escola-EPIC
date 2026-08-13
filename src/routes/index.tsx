@@ -128,7 +128,7 @@ function Nav() {
     ["Temas", "#temas"],
     ["Cronograma", "#cronograma"],
     ["Prêmios", "#premios"],
-    ["Regras", "#regras"],
+    ["Regras", "https://drive.google.com/file/d/15UhhphSYcmJThoiQ3d4eaCCg0D-OnHvY/view?usp=sharing"],
   ];
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
@@ -138,11 +138,20 @@ function Nav() {
           EPIC<span className="text-muted-foreground font-normal">School</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          {links.map(([label, href]) => (
-            <a key={href} href={href} className="hover:text-foreground transition-colors">
-              {label}
-            </a>
-          ))}
+          {links.map(([label, href]) => {
+            const isExternal = href.startsWith('http');
+            return (
+              <a 
+                key={href} 
+                href={href} 
+                className="hover:text-foreground transition-colors"
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+              >
+                {label}
+              </a>
+            );
+          })}
         </nav>
         <a
           href="https://classroom.google.com/c/ODY5MDg4MDYxMzEz?cjc=cs2b76o6"
@@ -204,7 +213,9 @@ function Hero() {
               Participar agora <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#regras"
+              href="https://drive.google.com/file/d/15UhhphSYcmJThoiQ3d4eaCCg0D-OnHvY/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-border bg-background/90 backdrop-blur-xl px-6 py-3.5 sm:py-3 text-sm font-medium text-foreground hover:bg-surface transition-colors"
             >
               Ver regulamento
@@ -523,16 +534,26 @@ function Prizes() {
           image="/images/heroisDaPizza.jpeg"
           items={["Rodízio Heróis da Pizza", "Camiseta oficial da Epic", "Arte impressa em A3", "Destaque nas nossas redes"]}
         />
-        <PrizeCard
-          place="1º Lugar"
-          featured
-          image="/images/premio.png"
-          items={[
-            "Arte GIGANTE plotada na parede em frente ao Laboratório G1",
-            "Mesa Digitalizadora XP-PEN Artist 12 3rd Gen com display",
-            "Arte impressa em A3"
-          ]}
-        />
+        <div className="flex flex-col items-center w-full">
+          <PrizeCard
+            place="1º Lugar"
+            featured
+            image="/images/premio.png"
+            items={[
+              "Arte GIGANTE plotada na parede em frente ao Laboratório G1",
+              "Mesa Digitalizadora XP-PEN Artist 12 3rd Gen com display",
+              "Arte impressa em A3"
+            ]}
+          />
+          <a
+            href="https://www.storexppen.com.br/buy/artist-12-3rd.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 md:mt-12 inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-5 py-2 text-xs md:text-sm font-bold text-primary hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider"
+          >
+            Detalhes do produto
+          </a>
+        </div>
         <PrizeCard
           place="3º Lugar"
           image="/images/cineplay.png"
@@ -548,11 +569,9 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
 
   return (
     <div
-      className={`relative h-[450px] w-full [perspective:1000px] group ${featured ? "md:scale-105 mt-4 md:mt-0" : ""
-        } ${!isFlipped ? "cursor-pointer" : "cursor-default"}`}
-      onClick={() => {
-        if (!isFlipped) setIsFlipped(true);
-      }}
+      className={`relative h-[450px] w-full [perspective:1000px] group cursor-pointer ${featured ? "md:scale-105 mt-4 md:mt-0" : ""
+        }`}
+      onClick={() => setIsFlipped(!isFlipped)}
     >
       <div
         className={`w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [-webkit-transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}
@@ -616,26 +635,12 @@ function PrizeCard({ place, items, featured = false, image }: { place: string; i
             <div className={`font-display text-2xl font-bold mb-6 drop-shadow-lg ${featured ? "text-primary" : "text-foreground"}`}>{place}</div>
 
             <ul className="space-y-4 text-base md:text-lg w-full flex flex-col items-center justify-center flex-1 pb-4">
-              {items.map((it) => {
-                const isTablet = it.includes("XP-PEN") || it.includes("Artist 12");
-                return (
-                  <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
-                    <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
-                    <span>{it}</span>
-                    {isTablet && featured && (
-                      <a
-                        href="https://www.storexppen.com.br/buy/artist-12-3rd.html"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary/20 text-primary border border-primary/30 px-5 py-1.5 text-xs font-bold hover:bg-primary hover:text-primary-foreground transition-all uppercase tracking-wider shadow-sm hover:shadow-md cursor-pointer pointer-events-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Detalhes do produto
-                      </a>
-                    )}
-                  </li>
-                );
-              })}
+              {items.map((it) => (
+                <li key={it} className="flex flex-col items-center text-center gap-1.5 text-foreground drop-shadow-md font-medium">
+                  <Check className={`h-5 w-5 shrink-0 ${featured ? "text-primary" : "text-foreground/70"}`} />
+                  <span>{it}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -686,7 +691,9 @@ function FinalCta() {
                 Enviar minha arte <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="#regras"
+                href="https://drive.google.com/file/d/15UhhphSYcmJThoiQ3d4eaCCg0D-OnHvY/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-full border border-white/40 bg-white/10 backdrop-blur px-7 py-3.5 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
               >
                 Reler o regulamento
